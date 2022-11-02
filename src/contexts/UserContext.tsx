@@ -1,4 +1,5 @@
-import { useState, createContext } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, createContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { iUserLogin } from "../pages/Login/typeLogin";
@@ -18,12 +19,18 @@ export const UserProvider = ({ children }: iChildren) => {
       localStorage.setItem("@astroverso:token", response.data.accessToken);
       localStorage.setItem("@astroverso:id", response.data.user.id);
       setUser(response.data.user);
+      console.log(response)
       navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("@astroverso:token");
+    !token && navigate("/login");
+  }, [])
+  
   return (
     <UserContext.Provider value={{ user, setUser, login }}>
       {children}
