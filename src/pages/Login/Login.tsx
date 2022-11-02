@@ -1,4 +1,3 @@
-
 import Astronaut from "../../assets/Astronaut.gif"
 import { FormLogin } from "./FormLogin";
 
@@ -15,3 +14,4 @@ return (
   </section>
 );
 }
+
