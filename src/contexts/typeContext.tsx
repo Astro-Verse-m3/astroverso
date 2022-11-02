@@ -9,7 +9,7 @@ export interface iUser {
   email: string;
   id: number;
   score: number;
-//   favoritesPosts: iFavoritesPosts[];
+  //   favoritesPosts: iFavoritesPosts[];
 }
 
 export interface iUserContextProps {

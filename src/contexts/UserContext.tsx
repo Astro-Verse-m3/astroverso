@@ -19,7 +19,7 @@ export const UserProvider = ({ children }: iChildren) => {
       localStorage.setItem("@astroverso:token", response.data.accessToken);
       localStorage.setItem("@astroverso:id", response.data.user.id);
       setUser(response.data.user);
-      console.log(response)
+      console.log(response);
       navigate("/dashboard");
     } catch (error) {
       console.log(error);
@@ -29,8 +29,8 @@ export const UserProvider = ({ children }: iChildren) => {
   useEffect(() => {
     const token = localStorage.getItem("@astroverso:token");
     !token && navigate("/login");
-  }, [])
-  
+  }, []);
+
   return (
     <UserContext.Provider value={{ user, setUser, login }}>
       {children}

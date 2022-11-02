@@ -1,5 +1,6 @@
-import { FormLogin } from "./FormLogin";
+
 import Astronaut from "../../assets/Astronaut.gif"
+import { FormLogin } from "./FormLogin";
 
 export const Login = () => {
 
