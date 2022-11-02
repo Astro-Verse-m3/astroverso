@@ -1,7 +1,12 @@
-import React from 'react'
+import axios from "axios";
 
-export const ApiRequest = () => {
-  return (
-    <div>ApiRequest</div>
-  )
-}
+const token = localStorage.getItem("@astroverso:token")
+export const ApiRequests = axios.create({
+  baseURL: "https://astroverso-json-api.herokuapp.com/",
+  timeout: 5000,
+  headers:{
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`
+  }
+});
+
