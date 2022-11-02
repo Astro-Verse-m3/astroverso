@@ -2,11 +2,11 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { NotFound } from "../components/NotFound/NotFound";
 import { ProtectRoutes } from "../components/ProtectRoutes/ProtectRoutes";
-import { Dashboard } from "../Pages/Dashboard/Dashboard";
-import { Extras } from "../Pages/Extras/Extras";
-import { Home } from "../Pages/Home/Home";
-import { Login } from "../Pages/Login/Login";
-import { Register } from "../Pages/Register/Register";
+import { Dashboard } from "../pages/Dashboard/Dashboard";
+import { Extras } from "../pages/Extras/Extras";
+import { Home } from "../pages/Home/Home";
+import { Login } from "../pages/Login/Login";
+import { Register } from "../pages/Register/Register";
 
 export const MainRoutes = () => {
   return (
