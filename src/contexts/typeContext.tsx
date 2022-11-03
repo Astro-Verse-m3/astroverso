@@ -5,12 +5,20 @@ export interface iChildren {
   children: React.ReactNode;
 }
 
+export interface iFavoritesPosts {
+  id: number;
+  category: string;
+  planetName: string,
+	planetID: number,
+	description: string
+}
+
 export interface iUser {
   name: string;
   email: string;
   id: number;
-  score: number;
-  //   favoritesPosts: iFavoritesPosts[];
+  score?: number;
+  favoritesPosts?: iFavoritesPosts[] | [];
 }
 
 export interface iUserContextProps {
