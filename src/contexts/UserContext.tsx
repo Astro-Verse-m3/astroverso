@@ -7,14 +7,12 @@ import { iUserRegister } from "../pages/Register/typeRegister";
 import { ApiRequests } from "../services/ApiRequest";
 import { iChildren, iUser, iUserContextProps } from "./typeContext";
 
-
 export const UserContext = createContext({} as iUserContextProps);
 
 export const UserProvider = ({ children }: iChildren) => {
   const [user, setUser] = useState<iUser | null>(null);
 
   const navigate = useNavigate();
-
 
   const login = async (data: iUserLogin) => {
     try {
@@ -28,28 +26,25 @@ export const UserProvider = ({ children }: iChildren) => {
     }
   };
 
-
   const signUp = async (data: iUserRegister) => {
-    delete data.confirmPassword
-    console.log(data);
+    delete data.confirmPassword;
     try {
-      await ApiRequests.post("register", data);
+      const userData = { ...data, score: 0, favoritesPosts: [] } 
+      await ApiRequests.post("register", userData);
       navigate("/login");
     } catch (error) {
       console.log(error);
     }
   };
 
-
   useEffect(() => {
     const token = localStorage.getItem("@astroverso:token");
     if (!token) {
-      navigate("/login")
+      navigate("/login");
     } else if (token) {
-      navigate("/dashboard")
+      navigate("/dashboard");
     }
   }, []);
-
 
   return (
     <UserContext.Provider value={{ user, setUser, login, signUp }}>
