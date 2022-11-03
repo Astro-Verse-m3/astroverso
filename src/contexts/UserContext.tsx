@@ -3,8 +3,10 @@ import { useState, createContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { iUserLogin } from "../pages/Login/typeLogin";
+import { iUserRegister } from "../pages/Register/typeRegister";
 import { ApiRequests } from "../services/ApiRequest";
 import { iChildren, iUser, iUserContextProps } from "./typeContext";
+
 
 export const UserContext = createContext({} as iUserContextProps);
 
@@ -13,26 +15,42 @@ export const UserProvider = ({ children }: iChildren) => {
 
   const navigate = useNavigate();
 
+
   const login = async (data: iUserLogin) => {
     try {
       const response = await ApiRequests.post("login", data);
       localStorage.setItem("@astroverso:token", response.data.accessToken);
       localStorage.setItem("@astroverso:id", response.data.user.id);
       setUser(response.data.user);
-      console.log(response);
       navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
   };
 
+
+  const signUp = async (data: iUserRegister) => {
+    try {
+      await ApiRequests.post("register", data);
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
   useEffect(() => {
     const token = localStorage.getItem("@astroverso:token");
-    !token && navigate("/login");
+    if (!token) {
+      navigate("/login")
+    } else if (token) {
+      navigate("/dashboard")
+    }
   }, []);
 
+  
   return (
-    <UserContext.Provider value={{ user, setUser, login }}>
+    <UserContext.Provider value={{ user, setUser, login, signUp }}>
       {children}
     </UserContext.Provider>
   );
