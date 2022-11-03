@@ -1,4 +1,5 @@
 import { iUserLogin } from "../pages/Login/typeLogin";
+import { iUserRegister } from "../pages/Register/typeRegister";
 
 export interface iChildren {
   children: React.ReactNode;
@@ -16,4 +17,5 @@ export interface iUserContextProps {
   user: iUser | null;
   setUser: React.Dispatch<React.SetStateAction<iUser | null>>;
   login: (data: iUserLogin) => void;
+  signUp: (data: iUserRegister) => void; 
 }
