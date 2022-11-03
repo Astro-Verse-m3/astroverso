@@ -30,6 +30,8 @@ export const UserProvider = ({ children }: iChildren) => {
 
 
   const signUp = async (data: iUserRegister) => {
+    delete data.confirmPassword
+    console.log(data);
     try {
       await ApiRequests.post("register", data);
       navigate("/login");
@@ -48,7 +50,7 @@ export const UserProvider = ({ children }: iChildren) => {
     }
   }, []);
 
-  
+
   return (
     <UserContext.Provider value={{ user, setUser, login, signUp }}>
       {children}
