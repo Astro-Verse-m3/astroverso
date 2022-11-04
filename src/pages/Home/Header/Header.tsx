@@ -1,7 +1,8 @@
-import React from 'react'
+import React from "react";
 
-export const Header = () => {
-  return (
-    <div>Header</div>
-  )
-}
+import type { MenuProps } from "antd";
+import { Menu } from "antd";
+
+// import "antd/dist/antd.css";
+
+export const Header = () => {};

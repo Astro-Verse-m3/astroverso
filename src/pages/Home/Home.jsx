@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react";
+import { Carousel } from "./Carousel/Carousel";
+import { Header } from "./Header/Header";
+import { StyledHomeContainer } from "./style";
 
 export const Home = () => {
-  return (
-    <div>Index</div>
-  )
-}
+	return (
+		<StyledHomeContainer>
+			<Header />
+			<Carousel />
+		</StyledHomeContainer>
+	);
+};
