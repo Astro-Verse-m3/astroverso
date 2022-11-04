@@ -6,12 +6,11 @@ export const GlobalStyle = createGlobalStyle`
     License: none (public domain)
     */
 
-    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, button, textarea, option, input, select {
+    html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, a, img, small, strong, ol, ul, li, form, label, article, aside, figure, figcaption, footer, header, nav, section, button, textarea, option, input, select {
         margin: 0;
         padding: 0;
         border: none;
         font-size: 100%;
-        font-family: 'Georama';
         vertical-align: baseline;
         box-sizing: border-box;
         text-decoration: none;
@@ -27,7 +26,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        line-height: 1;
+        width: 100vw;
     }
 
     ol, ul {
@@ -54,6 +53,12 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     :root {
+        --font-family-Raleway: 'Raleway', sans-serif;
+        --font-family-Flamenco: 'Flamenco', cursive;
+        --font-family-Georama: 'Georama', sans-serif;
+        --font-family-Nunito: 'Nunito', sans-serif;
+        --font-family-Righteous: 'Righteous', cursive;;
+
         --color-primary-1: #4200FF;
         --color-primary-focus: #292868;
         --color-primary-darker: #191831;
@@ -66,10 +71,10 @@ export const GlobalStyle = createGlobalStyle`
         --linear-gradient-1: #2B2A70;
         --linear-gradient-2: #191932;
         --linear-gradient-3: #080808;
-        --color-transparecy: rgba(0, 0, 0, 0.25);
+        --color-transparecy-1: rgba(0, 0, 0, 0.25);
+        --color-transparecy-2: rgba(180, 198, 232, 0.3);
         --feedback-negative: #e50c0c;
         --feedback-sucess: #5Bf44d;
-
 
         --title-1: 62px;
         --title-2: 35px;

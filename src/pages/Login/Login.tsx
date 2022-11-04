@@ -2,6 +2,7 @@
 import Astronaut from "../../assets/Astronaut.gif";
 import { Header } from "../../components/Header/Header";
 import { StyledSection } from "../../styles/section";
+import { StyledTitle } from "../../styles/typography";
 import { FormLogin } from "./FormLogin";
 
 export const Login = () => {
@@ -11,7 +12,7 @@ export const Login = () => {
         <Header />
         <div className="header-gif">
           <img src={Astronaut} alt="gif de astronauta" />
-          <span>Astronomia perto de você</span>
+          <StyledTitle tag="span" fontSize="four" margin="one">Astronomia perto de você</StyledTitle>
         </div>
       </div>
       <FormLogin />

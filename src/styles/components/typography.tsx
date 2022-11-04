@@ -10,6 +10,8 @@ export const BaseTitle = ({ children, tag, className }: iBaseTitleProps) => {
       {tag === "h4" && <h4 className={className}>{children}</h4>}
       {tag === "h5" && <h5 className={className}>{children}</h5>}
       {tag === "h6" && <h6 className={className}>{children}</h6>}
+      {tag === "span" && <span className={className}>{children}</span>}
+      {tag === "p" && <p className={className}>{children}</p>}
     </>
   );
 };

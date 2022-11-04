@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
 import { StyledHeader } from "../../styles/header";
+import { StyledLink } from "../../styles/link";
+import { Logo } from "../Logo/Logo";
 
 export const Header = () => {
   return (
     <StyledHeader>
-      <h1>Astroverso</h1>
+      <Logo />
       <nav>
-        <Link to={"/"}>Voltar</Link>
+        <StyledLink to={"/"} type="one">
+          Voltar
+        </StyledLink>
       </nav>
     </StyledHeader>
   );

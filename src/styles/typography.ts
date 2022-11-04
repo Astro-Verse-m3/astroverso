@@ -11,7 +11,10 @@ export const StyledTitle = styled(BaseTitle)<iTextProps>`
         `;
       case "two":
         return css`
+          //utlizado apenas para a logo
           font-size: var(--title-2);
+          font-family: var(--font-family-Flamenco);
+          font-weight: var(--font-weight-regular);
         `;
       case "three":
         return css`
@@ -39,73 +42,16 @@ export const StyledTitle = styled(BaseTitle)<iTextProps>`
         `;
     }
   }}
-`;
 
-export const StyledSpan = styled.span<iTextProps>`
-  ${({ fontSize }) => {
-    switch (fontSize) {
+  ${({ margin }) => {
+    switch (margin) {
       case "one":
         return css`
-          font-size: var(--title-1);
+          margin-top: -35px;
         `;
       case "two":
         return css`
-          font-size: var(--title-2);
-        `;
-      case "three":
-        return css`
-          font-size: var(--title-3);
-        `;
-      case "four":
-        return css`
-          font-size: var(--title-4);
-        `;
-      case "five":
-        return css`
-          font-size: var(--paragraph-1);
-        `;
-      case "six":
-        return css`
-          font-size: var(--paragraph-2);
-        `;
-      case "seven":
-        return css`
-          font-size: var(--author-1);
-        `;
-    }
-  }}
-`;
-
-export const StyledParagraph = styled.p<iTextProps>`
-  ${({ fontSize }) => {
-    switch (fontSize) {
-      case "one":
-        return css`
-          font-size: var(--title-1);
-        `;
-      case "two":
-        return css`
-          font-size: var(--title-2);
-        `;
-      case "three":
-        return css`
-          font-size: var(--title-3);
-        `;
-      case "four":
-        return css`
-          font-size: var(--title-4);
-        `;
-      case "five":
-        return css`
-          font-size: var(--paragraph-1);
-        `;
-      case "six":
-        return css`
-          font-size: var(--paragraph-2);
-        `;
-      case "seven":
-        return css`
-          font-size: var(--author-1);
+          //para quando tiver outra opção
         `;
     }
   }}
