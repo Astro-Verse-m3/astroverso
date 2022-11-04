@@ -85,9 +85,11 @@ export const GlobalStyle = createGlobalStyle`
         --height-1: 48px;
 	    --height-2: 38px;
 	    --height-3: 32px;
+        --height-4: 2.5rem;
 
         --width-1: 100%;
 	    --width-2: 1200px;
+        --width-3: 90%;
 
         /* Text Sizes */
         --title-1: 62px;
