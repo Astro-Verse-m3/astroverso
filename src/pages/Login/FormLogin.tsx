@@ -3,10 +3,15 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { UserContext } from "../../contexts/UserContext";
-import { Link } from "react-router-dom";
 import { formSchemaLogin } from "./schemaLogin";
 import { iUserLogin } from "./typeLogin";
-
+import { StyledLink } from "../../styles/link";
+import { StyledTitle } from "../../styles/typography";
+import { StyledForm } from "../../styles/form";
+import { TfiLock } from "react-icons/tfi";
+import { HiOutlineMail } from "react-icons/hi";
+import { StyledButton } from "../../styles/button";
+import { StyledInputsForm } from "../../styles/inputs";
 
 export const FormLogin = () => {
   const { login } = useContext(UserContext);
@@ -15,38 +20,46 @@ export const FormLogin = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<iUserLogin> ({resolver: yupResolver(formSchemaLogin),
-  });
+  } = useForm<iUserLogin>({ resolver: yupResolver(formSchemaLogin) });
 
   return (
-    <form onSubmit={handleSubmit(login)}>
-        <div>
-          <label htmlFor="email">E-mail</label>
-          <input
-            type="email"
-            id="email"
-            {...register("email")}
-          />
-        </div>
-        <span>
+    <StyledForm onSubmit={handleSubmit(login)}>
+      <div className="inputs-login">
+        <StyledInputsForm>
+          <HiOutlineMail />
+          <label htmlFor="email">
+            E-mail
+            <input type="email" id="email" {...register("email")} />
+          </label>
+        </StyledInputsForm>
+        <StyledTitle tag="span" fontSize="five">
           {errors.email?.message}
-        </span>
+        </StyledTitle>
 
-        <div>
-          <label htmlFor="password">Senha</label>
-          <input
-            type="password"
-            id="password"
-            {...register("password")}
-          />
-        </div>
-        <span>
+        <StyledInputsForm>
+          <TfiLock />
+          <label htmlFor="password">
+            Senha
+            <input type="password" id="password" {...register("password")} />
+          </label>
+        </StyledInputsForm>
+        <StyledTitle tag="span" fontSize="five">
           {errors.password?.message}
-        </span>
-        <div>
-            <button>Login</button>
-            <span>Não possui uma conta? <Link to={"/register"}>Cadastre-se!</Link></span>
-        </div>
-    </form>
-  )
+        </StyledTitle>
+      </div>
+
+      <div className="button-login">
+        <StyledTitle tag="span" fontSize="six">
+          Esqueceu a senha?
+        </StyledTitle>
+        <StyledButton>Login</StyledButton>
+        <StyledTitle tag="p" fontSize="six">
+          Não possui uma conta?
+          <StyledLink to={"/register"} type="two">
+            Cadastre-se!
+          </StyledLink>
+        </StyledTitle>
+      </div>
+    </StyledForm>
+  );
 };

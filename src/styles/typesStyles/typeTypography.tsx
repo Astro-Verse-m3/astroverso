@@ -1,3 +1,8 @@
 export interface iTextProps {
-    //escrever a tipagem aqui
+    fontSize: string
+    margin?: string
+}
+
+export interface iStyledLink {
+    type: string
 }
