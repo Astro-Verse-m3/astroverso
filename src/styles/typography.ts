@@ -55,4 +55,18 @@ export const StyledTitle = styled(BaseTitle)<iTextProps>`
         `;
     }
   }}
+
+${({ align }) => {
+    switch (align) {
+      case "one":
+        return css`
+          align-self: end;
+          text-decoration: underline;
+        `;
+      case "two":
+        return css`
+          //para quando tiver outra opção
+        `;
+    }
+  }}
 `;

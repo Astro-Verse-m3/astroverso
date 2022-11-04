@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const StyledButton = styled.button`
   width: 100%;
-  height: 2.5rem;
+  height: 2.5em;
+  margin: 8% 0 12% 0;
 
   background-color: var(--color-grey-2);
   color: var(--color-secondary-darker);
