@@ -27,10 +27,7 @@ export const FormLogin = () => {
       <div className="inputs-login">
         <StyledInputsForm>
           <HiOutlineMail />
-          <label htmlFor="email">
-            E-mail
-            <input type="email" id="email" {...register("email")} />
-          </label>
+          <input type="email" id="email" {...register("email")} placeholder="E-mail"/>
         </StyledInputsForm>
         <StyledTitle tag="span" fontSize="five">
           {errors.email?.message}
@@ -38,10 +35,7 @@ export const FormLogin = () => {
 
         <StyledInputsForm>
           <TfiLock />
-          <label htmlFor="password">
-            Senha
-            <input type="password" id="password" {...register("password")} />
-          </label>
+          <input type="password" id="password" {...register("password")} placeholder="Senha" />
         </StyledInputsForm>
         <StyledTitle tag="span" fontSize="five">
           {errors.password?.message}
@@ -49,7 +43,7 @@ export const FormLogin = () => {
       </div>
 
       <div className="button-login">
-        <StyledTitle tag="span" fontSize="six">
+        <StyledTitle tag="span" fontSize="six" align="one">
           Esqueceu a senha?
         </StyledTitle>
         <StyledButton>Login</StyledButton>
