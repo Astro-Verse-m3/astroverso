@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -6,50 +6,55 @@ export const GlobalStyle = createGlobalStyle`
     License: none (public domain)
     */
 
-    html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, a, img, small, strong, ol, ul, li, form, label, article, aside, figure, figcaption, footer, header, nav, section, button, textarea, option, input, select {
+    html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, a, img, small, strong, form, label, article, aside, figure, figcaption, footer, header, nav, section, button, textarea, option, input, select {
         margin: 0;
         padding: 0;
-        border: none;
+
         font-size: 100%;
-        vertical-align: baseline;
-        box-sizing: border-box;
-        text-decoration: none;
-        list-style: none;
-        background: none;
         color: none;
+        vertical-align: baseline;
+        text-decoration: none;
+        
+        background: none;
+        border: none;
+        
+         /* Box Model */
+        box-sizing: border-box;
     }
 
     /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure, 
-    footer, header, hgroup, menu, nav, section {
+    footer, header, nav, section {
         display: block;
     }
 
     body {
         width: 100vw;
+        overflow-x: hidden;
     }
 
-    ol, ul {
+    ul,li {
         list-style: none;
     }
 
-    blockquote, q {
-        quotes: none;
+    input, select{
+        outline: none;
+
+        background: transparent;
     }
 
-    blockquote:before, blockquote:after,
-    q:before, q:after {
-        content: '';
-        content: none;
-    }
-
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
-    }
 
     button{
         cursor: pointer;
+
+        display: inline-flex;
+	    align-items: center;
+	    justify-content: center;
+
+        border: none;
+        background: transparent;
+
+        transition: 0.3s;
     }
 
     :root {
@@ -76,6 +81,15 @@ export const GlobalStyle = createGlobalStyle`
         --feedback-negative: #e50c0c;
         --feedback-sucess: #5Bf44d;
 
+        /* Size Elements */
+        --height-1: 48px;
+	    --height-2: 38px;
+	    --height-3: 32px;
+
+        --width-1: 100%;
+	    --width-2: 1200px;
+
+        /* Text Sizes */
         --title-1: 62px;
         --title-2: 35px;
         --title-3: 25px;
@@ -87,8 +101,44 @@ export const GlobalStyle = createGlobalStyle`
 
         --author-1: 12px;
 
+        /* Text Weight */
         --font-weigth-extrabold: 800;
         --font-weight-mixed: 500;
         --font-weight-regular: 400;
+
+        /* Margins */
+        --gap-1: 32px;
+        --gap-2: 28px;
+        --gap-3: 24px;
+        --gap-4: 20px;
+        --gap-5: 16px;
+        --gap-6: 8px;
+
+        /* Border Radius */
+        --radius-1: 4px;
+        --radius-2: 8px;
     }
+
+    /* SCROLL BAR  */
+    ::-webkit-scrollbar {
+        width: var(--radius-1);
+        height: var(--radius-1);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--color-primary-darker);
+        border-radius: var(--radius-1);
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: var(--color-transparecy);
+        border-radius: var(--radius-1);
+    }
+`;
+
+export const StyledContainer = styled.div`
+	width: var(--width-1);
+	max-width: var(--width-1);
+	margin: 0 auto;
+	padding: var(--gap-5) var(--gap-3);
 `;
