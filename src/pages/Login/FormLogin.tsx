@@ -29,7 +29,7 @@ export const FormLogin = () => {
           <CiMail />
           <input type="email" id="email" {...register("email")} placeholder="E-mail"/>
         </StyledInputsForm >
-        <StyledTitle tag="span" fontSize="eight" color="one">
+        <StyledTitle tag="span" fontSize="eight" color="one" editText="three">
           {errors.email?.message}
         </StyledTitle>
 
@@ -37,17 +37,17 @@ export const FormLogin = () => {
           <TfiLock />
           <input type="password" id="password" {...register("password")} placeholder="Senha" />
         </StyledInputsForm>
-        <StyledTitle tag="span" fontSize="eight" color="one">
+        <StyledTitle tag="span" fontSize="eight" color="one" editText="three">
           {errors.password?.message}
         </StyledTitle>
       </div>
 
       <div className="button-login">
-        <StyledTitle tag="span" fontSize="six" align="one" margin="two">
+        <StyledTitle tag="span" fontSize="seven" align="one" margin="two" editText="two">
           Esqueceu a senha?
         </StyledTitle>
         <StyledButton margin="one">Login</StyledButton>
-        <StyledTitle tag="p" fontSize="six">
+        <StyledTitle tag="p" fontSize="seven" editText="two">
           Não possui uma conta?
           <StyledLink to={"/register"} type="two">
             Cadastre-se!
