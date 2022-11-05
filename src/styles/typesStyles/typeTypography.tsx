@@ -3,6 +3,7 @@ export interface iTextProps {
     margin?: string
     align?: string
     color?: string
+    editText?: string
 }
 
 export interface iStyledLink {

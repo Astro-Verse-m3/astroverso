@@ -62,7 +62,7 @@ export const GlobalStyle = createGlobalStyle`
         --font-family-Flamenco: 'Flamenco', cursive;
         --font-family-Georama: 'Georama', sans-serif;
         --font-family-Nunito: 'Nunito', sans-serif;
-        --font-family-Righteous: 'Righteous', cursive;;
+        --font-family-Righteous: 'Righteous', cursive;
 
         --color-primary-1: #4200FF;
         --color-primary-focus: #292868;
@@ -97,6 +97,8 @@ export const GlobalStyle = createGlobalStyle`
         --title-3: 25px;
         --title-4: 21px;
         --title-5: 18px;
+        --title-6: 40px;
+        --title-7: 30px;
         
         --paragraph-1: 16px;
         --paragraph-2: 14px;
@@ -105,6 +107,7 @@ export const GlobalStyle = createGlobalStyle`
 
         /* Text Weight */
         --font-weigth-extrabold: 800;
+        --font-weigth-bold: 600;
         --font-weight-mixed: 500;
         --font-weight-regular: 400;
 

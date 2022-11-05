@@ -6,6 +6,10 @@ export const StyledHeader = styled.header`
   width: 88%;
   margin-top: 10px;
 
+  @media (min-width: 2560px) {
+    width: 50%;
+  }
+
   nav {
     align-self: center;
   }

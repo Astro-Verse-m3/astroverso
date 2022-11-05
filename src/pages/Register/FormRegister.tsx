@@ -36,7 +36,7 @@ export const FormRegister = () => {
             {...register("name")}
           />
         </StyledInputsForm>
-        <StyledTitle tag="span" fontSize="eight" color="one">
+        <StyledTitle tag="span" fontSize="eight" color="one" editText="three">
           {errors.name?.message}
         </StyledTitle>
 
@@ -49,7 +49,7 @@ export const FormRegister = () => {
             {...register("email")}
           />
         </StyledInputsForm>
-        <StyledTitle tag="span" fontSize="eight" color="one">
+        <StyledTitle tag="span" fontSize="eight" color="one" editText="three">
           {errors.email?.message}
         </StyledTitle>
 
@@ -62,7 +62,7 @@ export const FormRegister = () => {
             {...register("password")}
           />
         </StyledInputsForm>
-        <StyledTitle tag="span" fontSize="eight" color="one">
+        <StyledTitle tag="span" fontSize="eight" color="one" editText="three">
           {errors.password?.message}
         </StyledTitle>
 
@@ -75,14 +75,14 @@ export const FormRegister = () => {
             {...register("confirmPassword")}
           />
         </StyledInputsForm>
-        <StyledTitle tag="span" fontSize="eight" color="one">
+        <StyledTitle tag="span" fontSize="eight" color="one" editText="three">
           {errors.confirmPassword?.message}
         </StyledTitle>
       </div>
 
       <div className="button-login">
         <StyledButton margin="two">Cadastrar</StyledButton>
-        <StyledTitle tag="p" fontSize="six">
+        <StyledTitle tag="p" fontSize="seven" editText="two">
           Já possui uma conta? <StyledLink to={"/login"} type="two">Faça Login!</StyledLink>
         </StyledTitle>
       </div>

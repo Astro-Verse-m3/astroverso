@@ -7,18 +7,34 @@ export const StyledForm = styled.form`
   height: 52%;
 
   margin-bottom: 25px;
+  position: relative;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  .inputs-login{
+  @media (min-width: 760px) {
+    width: 80%;
+    height: 65%;
+    margin-bottom: 78px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 850px;
+  }
+
+  .inputs-login {
     width: 90%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    @media (min-width: 760px) {
+      width: 80%;
+    }
   }
 
   .button-login {
@@ -27,5 +43,9 @@ export const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (min-width: 760px) {
+      width: 80%;
+    }
   }
 `;

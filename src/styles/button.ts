@@ -13,9 +13,18 @@ export const StyledButton = styled.button<iStyledButton>`
   font-weight: var(--font-weight-regular);
   font-family: var(--font-family-Georama);
 
-  &:hover{
+  &:hover {
     background-color: var(--color-secondary-darker);
     color: var(--color-grey-0);
+  }
+
+  @media (min-height: 800px) {
+    height: var(--height-1);
+  }
+
+  @media (min-width: 760px) {
+    height: 88px;
+    font-size: var(--title-2);
   }
 
   ${({ margin }) => {
@@ -27,6 +36,10 @@ export const StyledButton = styled.button<iStyledButton>`
       case "two":
         return css`
           margin: 5% 0 8% 0;
+
+          @media (min-height: 800px) {
+            margin: 2% 0 6% 0;
+          }
         `;
     }
   }}
