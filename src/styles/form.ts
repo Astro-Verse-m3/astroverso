@@ -4,7 +4,7 @@ export const StyledForm = styled.form`
   background-color: var(--color-transparecy-2);
   border-radius: 20px;
   width: 88%;
-  height: 50%;
+  height: 52%;
 
   margin-bottom: 25px;
 

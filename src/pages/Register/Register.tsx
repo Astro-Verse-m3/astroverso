@@ -1,26 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
 import Astronaut from "../../assets/Astronaut.gif"
+import { Header } from '../../components/Header/Header'
+import { StyledSection } from '../../styles/section'
+import { StyledTitle } from "../../styles/typography"
 import { FormRegister } from './FormRegister'
 
 
 export const Register = () => {
   return (
-    <section>
-      <div>
-        <header>
-          <h1>ASTROVERSO</h1>
-          <nav>
-            <Link to={"/"}>Voltar</Link>
-          </nav>
-        </header>
-        <div>
+    <StyledSection>
+      <div className="header">
+      <Header />
+        <div className="header-gif">
           <img src={Astronaut} alt="gif de astronauta" />
-          <span>Astronomia perto de você</span>
+          <StyledTitle tag="span" fontSize="four" margin="one">Astronomia perto de você</StyledTitle>
         </div>
       </div>
       <FormRegister />
-    </section>
+    </StyledSection>
   )
 }

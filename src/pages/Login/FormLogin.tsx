@@ -9,7 +9,7 @@ import { StyledLink } from "../../styles/link";
 import { StyledTitle } from "../../styles/typography";
 import { StyledForm } from "../../styles/form";
 import { TfiLock } from "react-icons/tfi";
-import { HiOutlineMail } from "react-icons/hi";
+import { CiMail } from "react-icons/ci";
 import { StyledButton } from "../../styles/button";
 import { StyledInputsForm } from "../../styles/inputs";
 
@@ -25,28 +25,28 @@ export const FormLogin = () => {
   return (
     <StyledForm onSubmit={handleSubmit(login)}>
       <div className="inputs-login">
-        <StyledInputsForm>
-          <HiOutlineMail />
+        <StyledInputsForm margin="one">
+          <CiMail />
           <input type="email" id="email" {...register("email")} placeholder="E-mail"/>
-        </StyledInputsForm>
-        <StyledTitle tag="span" fontSize="five">
+        </StyledInputsForm >
+        <StyledTitle tag="span" fontSize="eight" color="one">
           {errors.email?.message}
         </StyledTitle>
 
-        <StyledInputsForm>
+        <StyledInputsForm margin="one">
           <TfiLock />
           <input type="password" id="password" {...register("password")} placeholder="Senha" />
         </StyledInputsForm>
-        <StyledTitle tag="span" fontSize="five">
+        <StyledTitle tag="span" fontSize="eight" color="one">
           {errors.password?.message}
         </StyledTitle>
       </div>
 
       <div className="button-login">
-        <StyledTitle tag="span" fontSize="six" align="one">
+        <StyledTitle tag="span" fontSize="six" align="one" margin="two">
           Esqueceu a senha?
         </StyledTitle>
-        <StyledButton>Login</StyledButton>
+        <StyledButton margin="one">Login</StyledButton>
         <StyledTitle tag="p" fontSize="six">
           Não possui uma conta?
           <StyledLink to={"/register"} type="two">

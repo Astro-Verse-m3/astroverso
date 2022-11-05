@@ -51,7 +51,7 @@ export const StyledTitle = styled(BaseTitle)<iTextProps>`
         `;
       case "two":
         return css`
-          //para quando tiver outra opção
+          margin-top: 5px;
         `;
     }
   }}
@@ -69,4 +69,14 @@ ${({ align }) => {
         `;
     }
   }}
+
+${({ color }) => {
+    switch (color) {
+      case "one":
+        return css`
+          color: var(--feedback-negative);
+        `;
+    }
+  }}
+
 `;
