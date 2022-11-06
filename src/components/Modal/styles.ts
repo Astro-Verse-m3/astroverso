@@ -17,15 +17,14 @@ export const StyledModalCard = styled.div`
   border-radius: 20px;
   position: relative;
   padding: 3rem 2rem;
-  font-family: 'Raleway';
 
   .close-button {
     background-color: #d0cedd;
     color: #000;
     border-radius: 50%;
     position: absolute;
-    right: 2rem;
-    top: 2rem;
+    right: 10px;
+    top: 10px;
     width: 25px;
     height: 25px;
     display: flex;
@@ -45,6 +44,29 @@ export const StyledModalCard = styled.div`
     display: flex;
     align-items: center;
   }
+
+  @media screen and (max-width: 1172px) {
+    height: 70%;
+    width: 50%;
+
+    main {
+      flex-direction: column;
+      transform: translateY(-161px);
+    }
+  }
+
+  @media screen and (max-width: 730px) {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 540px) {
+    width: 80%;
+
+    button {
+      right: -7px !important;
+      top: -10px !important ;
+    }
+  }
 `;
 
 export const StyledCardName = styled.div`
@@ -57,12 +79,28 @@ export const StyledCardName = styled.div`
 
   h2 {
     font-size: 40px;
+    font-family: 'Righteous', cursive;
     font-weight: 800;
+  }
+
+  @media screen and (max-width: 1172px) {
+    margin-bottom: 2.5rem;
+  }
+
+  @media screen and (max-width: 540px) {
+    margin-bottom: 1.5rem;
+
+    h2 {
+      font-size: 35px;
+    }
   }
 `;
 
 export const StyledCardContent = styled.div`
   width: 50%;
+  font-family: 'Nunito', sans-serif;
+  height: 15rem;
+  overflow: auto;
 
   h3 {
     font-weight: 700;
@@ -75,6 +113,28 @@ export const StyledCardContent = styled.div`
     font-size: 16px;
     line-height: 26px;
     margin-top: 10px;
+  }
+
+  @media screen and (max-width: 1172px) {
+    width: 100%;
+
+    h3 {
+      font-size: 25px;
+    }
+
+    p {
+      font-size: 21px;
+    }
+  }
+
+  @media screen and (max-width: 730px) {
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 16px;
+    }
   }
 `;
 

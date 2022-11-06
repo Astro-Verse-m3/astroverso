@@ -30,7 +30,11 @@ export const Modal = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit qui
               veritatis, nam similique ratione pariatur quidem dolorum vitae
               perferendis aspernatur doloribus incidunt in expedita repellendus
-              iure fugit deleniti obcaecati nemo!
+              iure fugit deleniti obcaecati nemo! Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Recusandae fugit magni molestias
+              similique facilis libero soluta? Ipsum quasi magni molestias
+              aliquid! Illo, eligendi iste! Non molestias nemo maxime dolorem
+              minus.
             </p>
           </StyledCardContent>
         </main>
