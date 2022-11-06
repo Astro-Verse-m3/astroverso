@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@google/model-viewer": "^2.0.2",
     "@hookform/resolvers": "^2.9.8",
     "@radix-ui/react-dropdown-menu": "^2.0.1",
     "@testing-library/jest-dom": "^5.14.1",
