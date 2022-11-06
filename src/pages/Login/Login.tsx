@@ -1,6 +1,5 @@
 import Astronaut from '../../assets/Astronaut.gif';
 import { Header } from '../../components/Header/Header';
-import { Modal } from '../../components/Modal/Modal';
 import { StyledSection } from '../../styles/section';
 import { StyledTitle } from '../../styles/typography';
 import { FormLogin } from './FormLogin';
@@ -15,7 +14,6 @@ export const Login = () => {
           <StyledTitle tag="span" fontSize="four" margin="one">
             Astronomia perto de você
           </StyledTitle>
-          <Modal />
         </div>
       </div>
       <FormLogin />
