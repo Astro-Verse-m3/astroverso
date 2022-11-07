@@ -27,11 +27,10 @@ export const StyledSection = styled.section`
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
 
-      @media (min-height: 800px) {
+      /* @media (min-height: 800px) {
         margin-top: 15px;
-      }
+      } */
 
       img {
         width: 70%;
@@ -41,27 +40,7 @@ export const StyledSection = styled.section`
         }
 
         @media (min-width: 760px) {
-          transform: rotateY(180deg);
-          width: 190px;
-          position: absolute;
-          left: -5px;
-          top: 74px;
-        }
-
-        @media (min-width: 1440px) {
-          left: 200px;
-        }
-
-        @media (min-width: 2560px) {
-          left: 770px;
-        }
-
-        @media (min-height: 1180px) {
-          top: 127px;
-        }
-
-        @media (min-height: 1368px) {
-          top: 197px;
+          display: none;
         }
       }
     }

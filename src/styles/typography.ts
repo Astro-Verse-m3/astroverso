@@ -51,7 +51,7 @@ export const StyledTitle = styled(BaseTitle)<iTextProps>`
     switch (margin) {
       case "one":
         return css`
-          margin-top: -35px;
+          margin-top: -25px;
 
           @media (min-height: 800px) {
             margin-top: 0;
@@ -101,14 +101,14 @@ ${({ editText }) => {
             margin-top: 60px;
           }
 
-          @media (min-height: 1180px) {
+          /* @media (min-height: 1180px) {
             margin-top: 100px;
           }
 
           @media (min-height: 1368px) {
             margin-top: 120px;
             font-size: var(--title-6);
-          }
+          } */
         `;
       case "two":
         return css`
@@ -117,19 +117,19 @@ ${({ editText }) => {
           }
 
           @media (min-width: 760px) {
-            font-size: var(--title-7);
+            font-size: var(--title-5);
           }
         `;
       case "three":
         return css`
-          @media (min-height: 800px) {
+          /* @media (min-height: 800px) {
             font-size: var(--paragraph-1);
             font-weight: var(--font-weigth-bold);
-          }
+          } */
 
           @media (min-width: 760px) {
-            font-size: var(--title-4);
-            margin-bottom: 10px;
+            font-size: var(--paragraph-1);
+
           }
         `;
     }

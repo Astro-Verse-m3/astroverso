@@ -12,34 +12,44 @@ export const StyledButton = styled.button<iStyledButton>`
   font-size: var(--title-5);
   font-weight: var(--font-weight-regular);
   font-family: var(--font-family-Georama);
+  transition: ease-in-out 0.5s;
 
   &:hover {
     background-color: var(--color-secondary-darker);
     color: var(--color-grey-0);
   }
 
-  @media (min-height: 800px) {
+  /* @media (min-height: 800px) {
     height: var(--height-1);
-  }
+  } */
 
   @media (min-width: 760px) {
-    height: 88px;
-    font-size: var(--title-2);
+    height: var(--height-1);
+    font-size: var(--title-3);
   }
+
+  /*@media (min-width: 1024px) {
+    height: 70px;
+    font-size: var(--title-3);
+  } */
 
   ${({ margin }) => {
     switch (margin) {
       case "one":
         return css`
-          margin: 8% 0 12% 0;
+          margin: 15px 0 25px 0;
         `;
       case "two":
         return css`
-          margin: 5% 0 8% 0;
+          margin: 10px 0 18px 0;
 
-          @media (min-height: 800px) {
-            margin: 2% 0 6% 0;
+          @media (min-width: 760px) {
+            margin: 15px 0 20px 0;
           }
+
+          /* @media (min-height: 800px) {
+            margin: 2% 0 6% 0;
+          } */
         `;
     }
   }}
