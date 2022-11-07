@@ -1,4 +1,3 @@
-import { posix } from "path";
 import styled, { css } from "styled-components";
 import { BaseTitle } from "./components/typography";
 import { iTextProps } from "./typesStyles/typeTypography";
@@ -70,7 +69,8 @@ export const StyledTitle = styled(BaseTitle)<iTextProps>`
       case "one":
         return css`
           align-self: end;
-          text-decoration: underline;
+          border-bottom: 1px solid;
+          padding-bottom: 1px;
         `;
     }
   }}

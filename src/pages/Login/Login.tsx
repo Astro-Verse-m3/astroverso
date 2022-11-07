@@ -1,3 +1,4 @@
+
 import Astronaut from "../../assets/Astronaut.gif";
 import { Header } from "../../components/Header/Header";
 import { StyledSection } from "../../styles/section";
@@ -16,7 +17,7 @@ export const Login = () => {
           </StyledTitle>
         </div>
       </div>
-      <FormLogin />
+        <FormLogin />
     </StyledSection>
   );
 };

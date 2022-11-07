@@ -16,6 +16,14 @@ export const StyledForm = styled.form`
 
   position: relative;
 
+  & > div:nth-child(1) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   @media (min-width: 500px) {
     width: 80%;
   }
