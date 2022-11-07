@@ -1,9 +1,8 @@
-
-import Astronaut from "../../assets/Astronaut.gif";
-import { Header } from "../../components/Header/Header";
-import { StyledSection } from "../../styles/section";
-import { StyledTitle } from "../../styles/typography";
-import { FormLogin } from "./FormLogin";
+import Astronaut from '../../assets/Astronaut.gif';
+import { Header } from '../../components/Header/Header';
+import { StyledSection } from '../../styles/section';
+import { StyledTitle } from '../../styles/typography';
+import { FormLogin } from './FormLogin';
 
 export const Login = () => {
   return (
