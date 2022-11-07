@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+    "@google/model-viewer": "^2.0.2",
 		"@hookform/resolvers": "^2.9.8",
 		"@radix-ui/colors": "^0.1.8",
 		"@radix-ui/react-avatar": "^1.0.1",
