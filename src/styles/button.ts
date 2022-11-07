@@ -19,25 +19,28 @@ export const StyledButton = styled.button<iStyledButton>`
     color: var(--color-grey-0);
   }
 
-  /* @media (min-height: 800px) {
+  @media (min-height: 840px) {
     height: var(--height-1);
-  } */
+  }
 
   @media (min-width: 760px) {
     height: var(--height-1);
     font-size: var(--title-3);
   }
 
-  /*@media (min-width: 1024px) {
-    height: 70px;
-    font-size: var(--title-3);
-  } */
-
   ${({ margin }) => {
     switch (margin) {
       case "one":
         return css`
           margin: 15px 0 25px 0;
+
+          @media (min-height: 840px) {
+            margin: 20px 0 30px 0;
+          }
+
+          @media (min-height: 1024px) {
+            margin: 30px 0 40px 0;
+          }
         `;
       case "two":
         return css`
@@ -46,10 +49,6 @@ export const StyledButton = styled.button<iStyledButton>`
           @media (min-width: 760px) {
             margin: 15px 0 20px 0;
           }
-
-          /* @media (min-height: 800px) {
-            margin: 2% 0 6% 0;
-          } */
         `;
     }
   }}

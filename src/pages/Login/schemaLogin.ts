@@ -6,5 +6,8 @@ export const formSchemaLogin = yup.object().shape({
 		.trim()
 		.required("Digite o seu e-mail")
 		.email("E-mail inválido"),
-	password: yup.string().trim().required("Digite a sua senha")
+	password: yup
+		.string()
+		.trim()
+		.required("Digite a sua senha")
 });

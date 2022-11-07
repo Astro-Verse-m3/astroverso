@@ -17,6 +17,10 @@ export const StyledLink = styled(Link)<iStyledLink>`
             padding: 7px 45px;
             font-size: var(--title-5);
           }
+
+          @media (min-height: 1024px) {
+            font-size: var(--title-4);
+          }
         `;
       case "two":
         return css`
@@ -34,6 +38,10 @@ export const StyledLink = styled(Link)<iStyledLink>`
           @media (min-width: 760px) {
             margin-left: 10px;
             font-size: var(--title-5);
+          }
+
+          @media (min-height: 1024px) {
+            font-size: var(--title-4);
           }
         `;
     }

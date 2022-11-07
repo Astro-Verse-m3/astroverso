@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { NotFound } from "../components/NotFound/NotFound";
 import { ProtectRoutes } from "../components/ProtectRoutes/ProtectRoutes";

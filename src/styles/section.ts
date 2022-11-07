@@ -28,10 +28,6 @@ export const StyledSection = styled.section`
       flex-direction: column;
       align-items: center;
 
-      /* @media (min-height: 800px) {
-        margin-top: 15px;
-      } */
-
       img {
         width: 70%;
 

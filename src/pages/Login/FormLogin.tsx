@@ -16,7 +16,7 @@ import { CiMail } from "react-icons/ci";
 import { StyledButton } from "../../styles/button";
 import { StyledInputsForm } from "../../styles/inputs";
 
-export const  FormLogin = () => {
+export const FormLogin = () => {
   const { login } = useContext(UserContext);
 
   const {

@@ -16,29 +16,14 @@ export const StyledInputsForm = styled.div<iStyledInputsForm>`
     border-bottom: 1px solid var(--color-primary-1);
   }
 
-  /* @media (min-height: 800px) {
-    padding-bottom: 10px;
-  } */
-
   @media (min-width: 760px) {
     padding-bottom: 15px;
     font-size: var(--title-4);
   }
 
-  /* @media (min-width: 1024px) {
-    font-size: var(--title-4);
-  } */
   svg {
     font-size: var(--title-3);
     font-weight: var(--font-weight-regular);
-
-    /* @media (min-width: 760px) {
-      font-size: var(--title-3);
-    }
-
-    @media (min-width: 1024px) {
-      font-size: var(--title-4);
-    } */
   }
 
   input {
@@ -57,41 +42,33 @@ export const StyledInputsForm = styled.div<iStyledInputsForm>`
         return css`
           margin-bottom: 30px;
 
-          /* @media (min-height: 800px) {
+          @media (min-height: 800px) {
             margin-bottom: 35px;
           }
 
-          @media (min-height: 1024px) {
-            margin-bottom: 60px;
+          @media (min-height: 844px) {
+            margin-bottom: 50px;
           }
 
-          @media (min-height: 1180px) {
+          @media (min-height: 1024px) {
             margin-bottom: 70px;
           }
-
-          @media (min-height: 1368px) {
-            margin-bottom: 90px;
-          } */
         `;
       case "two":
         return css`
-          margin-bottom: 18px;
+          margin-bottom: 15px;
 
-          /* @media (min-height: 800px) {
+          @media (min-height: 800px) {
             margin-bottom: 24px;
           }
 
+          @media (min-height: 844px) {
+            margin-bottom: 34px;
+          }
+
           @media (min-height: 1024px) {
-            margin-bottom: 30px;
+            margin-bottom: 50px;
           }
-
-          @media (min-height: 1180px) {
-            margin-bottom: 40px;
-          }
-
-          @media (min-height: 1368px) {
-            margin-bottom: 60px;
-          } */
         `;
     }
   }}
