@@ -33,7 +33,7 @@ export const StyledLink = styled(Link)<iStyledLink>`
 
           @media (min-width: 760px) {
             margin-left: 10px;
-            font-size: var(--title-7);
+            font-size: var(--title-5);
           }
         `;
     }

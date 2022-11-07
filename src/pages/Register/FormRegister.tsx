@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { UserContext } from "../../contexts/UserContext";
 import { iUserRegister } from "./typeRegister";
 import { formSchemaRegister } from "./SchemaRegister";
+
+import Astronaut from "../../assets/Astronaut.gif";
 import { StyledForm } from "../../styles/form";
 import { StyledTitle } from "../../styles/typography";
 import { StyledInputsForm } from "../../styles/inputs";
@@ -26,6 +28,7 @@ export const FormRegister = () => {
 
   return (
     <StyledForm onSubmit={handleSubmit(signUp)}>
+      <img src={Astronaut} alt="gif de astronauta" />
       <div className="inputs-login">
         <StyledInputsForm margin="two">
           <CiUser/>

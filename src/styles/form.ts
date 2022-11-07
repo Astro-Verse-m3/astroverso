@@ -14,14 +14,32 @@ export const StyledForm = styled.form`
   align-items: center;
   justify-content: center;
 
-  @media (min-width: 760px) {
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+
+  position: relative;
+
+  @media (min-width: 500px) {
     width: 80%;
-    height: 65%;
-    margin-bottom: 78px;
   }
 
-  @media (min-width: 1024px) {
-    width: 850px;
+  @media (min-width: 760px) {
+    max-width: 700px;
+    height: 65%;
+    margin-bottom: 35px;
+  }
+
+  img {
+    display: none;
+
+    @media (min-width: 760px) {
+      transform: rotateY(180deg);
+      width: 190px;
+      position: absolute;
+      left: -90px;
+      top: -140px;
+      display: flex;
+    }
   }
 
   .inputs-login {
@@ -32,7 +50,7 @@ export const StyledForm = styled.form`
     align-items: center;
     justify-content: center;
 
-    @media (min-width: 760px) {
+    @media (min-width: 500px) {
       width: 80%;
     }
   }
@@ -44,7 +62,7 @@ export const StyledForm = styled.form`
     flex-direction: column;
     align-items: center;
 
-    @media (min-width: 760px) {
+    @media (min-width: 500px) {
       width: 80%;
     }
   }

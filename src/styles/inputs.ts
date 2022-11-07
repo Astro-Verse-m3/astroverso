@@ -16,22 +16,29 @@ export const StyledInputsForm = styled.div<iStyledInputsForm>`
     border-bottom: 1px solid var(--color-primary-1);
   }
 
-  @media (min-height: 800px) {
+  /* @media (min-height: 800px) {
     padding-bottom: 10px;
-  }
+  } */
 
   @media (min-width: 760px) {
-    padding-bottom: 20px;
-    font-size: var(--title-7);
+    padding-bottom: 15px;
+    font-size: var(--title-4);
   }
 
+  /* @media (min-width: 1024px) {
+    font-size: var(--title-4);
+  } */
   svg {
     font-size: var(--title-3);
     font-weight: var(--font-weight-regular);
 
-    @media (min-width: 760px) {
-      font-size: var(--title-7);
+    /* @media (min-width: 760px) {
+      font-size: var(--title-3);
     }
+
+    @media (min-width: 1024px) {
+      font-size: var(--title-4);
+    } */
   }
 
   input {
@@ -48,9 +55,9 @@ export const StyledInputsForm = styled.div<iStyledInputsForm>`
     switch (margin) {
       case "one":
         return css`
-          margin-bottom: 20px;
+          margin-bottom: 30px;
 
-          @media (min-height: 800px) {
+          /* @media (min-height: 800px) {
             margin-bottom: 35px;
           }
 
@@ -64,13 +71,13 @@ export const StyledInputsForm = styled.div<iStyledInputsForm>`
 
           @media (min-height: 1368px) {
             margin-bottom: 90px;
-          }
+          } */
         `;
       case "two":
         return css`
-          margin-bottom: 10px;
+          margin-bottom: 18px;
 
-          @media (min-height: 800px) {
+          /* @media (min-height: 800px) {
             margin-bottom: 24px;
           }
 
@@ -84,7 +91,7 @@ export const StyledInputsForm = styled.div<iStyledInputsForm>`
 
           @media (min-height: 1368px) {
             margin-bottom: 60px;
-          }
+          } */
         `;
     }
   }}
