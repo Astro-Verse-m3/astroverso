@@ -27,7 +27,6 @@ export const StyledExtraDiv = styled.div`
     font-family: var(--font-family-Raleway);
     font-size: var(--title-3);
     margin-top: 10px;
-    max-width: 250px;
   }
 
   .discoveryBox {
