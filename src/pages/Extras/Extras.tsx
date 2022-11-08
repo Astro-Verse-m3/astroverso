@@ -1,30 +1,22 @@
-import { Content } from "@radix-ui/react-dropdown-menu";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { HeaderMenu } from "../Home/HeaderMenu/HeaderMenu";
 import { StyledExtraDiv, StyledExtraUl } from "./styledExtra";
 import { iContents } from "./typeExtra";
+import bookIcon from "../../assets/e-book.png";
+import movieIcon from "../../assets/film-reel.png";
+import serieIcon from "../../assets/cinema.png";
+import documentaryIcon from "../../assets/documentary.png";
+import allIcon from "../../assets/no-mundo-todo.png";
 
 export const Extras = () => {
   const [contents, setContents] = useState<iContents[]>([]);
   const [contentSearch, setContentsSearch] = useState<string>("");
-  const [filterButton, setfilterButton] = useState(contents);
+  const [filter, setfilter] = useState("Todos");
 
-  const handleButtons = (e: React.ChangeEvent<any>): void => {
-    let category = e.target.value;
-
-    if (category === 'Todos'){
-      setfilterButton(contents)
-    }
-    else if(category === 'Livros'){
-      const filtered = contents.filter(content=> content.type==='Livro')
-      setfilterButton(filtered);
-    }
-    else if (category === 'Filmes'){
-      const filtered = contents.filter(content=> content.type==='Filme')
-      setfilterButton(filtered);
-    }
-  }
+  const filterContent = contents.filter((content) =>
+    filter === "Todos" ? true : filter === content.type
+  );
 
   useEffect(() => {
     const recomendations = async () => {
@@ -49,9 +41,24 @@ export const Extras = () => {
       </section>
       <div className="discoveryBox">
         <div>
-          <button value="Livros" onClick={handleButtons}>Livros</button>
-          <button value="Filmes" onClick={handleButtons}>Filmes</button>
-          <button value="Todos" onClick={handleButtons}>Todos</button>
+          <button value="Livro" onClick={() => setfilter("Livro")}>
+            <img src={bookIcon} alt="" />
+          </button>
+          <button value="Filme" onClick={() => setfilter("Filme")}>
+            <img src={movieIcon} alt="" />
+          </button>
+          <button value="Série" onClick={() => setfilter("Série")}>
+            <img src={serieIcon} alt="" />
+          </button>
+          <button
+            value="Documentário"
+            onClick={() => setfilter("Documentário")}
+          >
+            <img src={documentaryIcon} alt="" />
+          </button>
+          <button value="Todos" onClick={() => setfilter("Todos")}>
+            <img src={allIcon} alt="" />
+          </button>
         </div>
         <input
           type="text"
@@ -62,7 +69,7 @@ export const Extras = () => {
         />
       </div>
       <StyledExtraUl>
-        {filterButton
+        {filterContent
           .filter((content) => {
             if (contentSearch === "") {
               return content;

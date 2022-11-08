@@ -16,13 +16,13 @@ export const StyledExtraDiv = styled.div`
     color: var(--color-grey-2);
     font-size: var(--title-5);
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 20px;
   }
 
   section h1 {
     font-family: var(--font-family-Raleway);
     font-size: var(--title-3);
-    margin-top: 15px;
+    margin-top: 10px;
     max-width: 250px;
   }
 
@@ -30,22 +30,24 @@ export const StyledExtraDiv = styled.div`
     display: flex;
     align-items: center;
     margin-left: 50px;
-    flex-wrap: nowrap;
-    flex-direction: row;
-  }
-  .discoveryBox div {
-    border: 1.7px solid var(--color-grey-2);
-    border-radius: 50px;
-    display: flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
     flex-wrap: nowrap;
     flex-direction: row;
   }
 
-  .discoveryBox div button {
-    color: var(--color-grey-2);
-    width: 70px;
+  .discoveryBox div {
+    border: 1.7px solid var(--color-grey-2);
     border-radius: 50px;
-    height: 40px;
+    display: flex;
+  }
+
+  .discoveryBox div button {
+    font-family: var(--font-family-Raleway);
+    color: var(--color-grey-2);
+    width: 55px;
+    border-radius: 50px;
+    height: 35px;
     flex-wrap: nowrap;
     :hover {
       color: var(--color-grey-2);
@@ -60,36 +62,53 @@ export const StyledExtraDiv = styled.div`
     background-color: transparent;
     border-radius: 50px;
     border: 1.7px solid var(--color-grey-2);
-    margin-top: 20px;
-    width: 210px;
-    height: 42px;
+    width: 250px;
+    height: 39px;
     margin-left: 20px;
     padding-left: 10px;
-    margin-bottom: 20px;
   }
 
-  @media (max-width: 580px) {
+  @media (max-width: 743px) {
     flex-direction: column;
     section {
-      margin-left: 20px;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section h1{
+        width: 223px;
     }
 
     .discoveryBox {
-      width: 210px;
       margin-top: 10px;
-      margin-left: 20px;
+      margin-left: 0px;
+      margin-right: 0px;
+      margin-bottom: 0px;
       display: flex;
       flex-direction: column;
+      align-items: center;
+    }
+
+    .discoveryBox div {
+        width: 260px;
+        height: 41px;
+    }
+
+    .discoveryBox div button{
+        width: 52px;
     }
 
     input {
-      width: 210px;
-      height: 42px;
+      width: 260px;
+      height: 41px;
       margin-top: 10px;
       margin-left: 0px;
       margin-right: 0px;
       margin-bottom: 10px;
     }
+
   }
 `;
 
@@ -167,6 +186,7 @@ export const StyledExtraUl = styled.ul`
     border: none;
     border-style: none;
     border-color: transparent;
+    object-fit: cover;
   }
 
   @media (max-width: 370px) {
