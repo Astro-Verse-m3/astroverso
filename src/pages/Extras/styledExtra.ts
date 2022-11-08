@@ -19,7 +19,8 @@ export const StyledExtraDiv = styled.div`
     color: var(--color-grey-2);
     font-size: var(--title-5);
     margin: 0 auto;
-    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-top: 30px;
   }
 
   section h1 {
@@ -74,7 +75,8 @@ export const StyledExtraDiv = styled.div`
     flex-direction: column;
     section {
       margin: 0px;
-      margin-top: 10px;
+      margin-bottom: 30px;
+      margin-top: 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -117,7 +119,8 @@ export const StyledExtraDiv = styled.div`
     section {
       margin: 0 auto;
       max-width: 762px;
-      margin-top: 10px;
+      margin-bottom: 30px;
+      margin-top: 30px;      
       display: flex;
       flex-direction: column;
     }
@@ -127,7 +130,8 @@ export const StyledExtraDiv = styled.div`
     section {
       margin: 0 auto;
       max-width: 1200px;
-      margin-top: 10px;
+      margin-bottom: 30px;
+      margin-top: 30px;
       display: flex;
       flex-direction: column;
     }
@@ -155,7 +159,6 @@ export const StyledExtraUl = styled.ul`
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
-    margin-top: 20px;
     gap: 10px;
     color: var(--color-grey-1);
   }
