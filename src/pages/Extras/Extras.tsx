@@ -83,11 +83,12 @@ export const Extras = () => {
             return (
               <li key={content.id}>
                 <div>
-                  <img src={content.image} />
+                  <img src={content.image} alt="" />
                 </div>
                 <div>
                   <div className="productContent">
                     <h2>{content.title}</h2>
+                    <strong>{content.type}</strong>
                     <span>Por: {content.author}</span>
                     <p>{content.description}</p>
                   </div>

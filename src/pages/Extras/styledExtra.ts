@@ -71,14 +71,15 @@ export const StyledExtraDiv = styled.div`
   @media (max-width: 743px) {
     flex-direction: column;
     section {
-        margin: 0px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      margin: 0px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    section h1{
-        width: 223px;
+    section h1 {
+      width: 223px;
     }
 
     .discoveryBox {
@@ -92,12 +93,12 @@ export const StyledExtraDiv = styled.div`
     }
 
     .discoveryBox div {
-        width: 260px;
-        height: 41px;
+      width: 260px;
+      height: 41px;
     }
 
-    .discoveryBox div button{
-        width: 52px;
+    .discoveryBox div button {
+      width: 52px;
     }
 
     input {
@@ -108,7 +109,6 @@ export const StyledExtraDiv = styled.div`
       margin-right: 0px;
       margin-bottom: 10px;
     }
-
   }
 `;
 
@@ -140,11 +140,20 @@ export const StyledExtraUl = styled.ul`
   li .productContent {
     height: 210px;
     width: 200px;
+    display: flex;
+    flex-direction: column;
   }
+
   li h2 {
     color: var(--color-grey-1);
     margin-bottom: 15px;
     font-size: 15px;
+  }
+
+  li strong {
+    font-size: 13px;
+    margin-bottom: 15px;
+    color: var(--color-grey-1);
   }
 
   li span {
@@ -160,11 +169,14 @@ export const StyledExtraUl = styled.ul`
     color: var(--color-grey-1);
   }
 
+  li .linkContent {
+    margin-top: 35px;
+  }
+
   li a {
     font-family: var(--font-family-Raleway);
     border-radius: 50px;
     border: 1.7px solid var(--color-grey-2);
-    margin-top: 15px;
     width: 140px;
     height: 40px;
     margin-left: 80px;
@@ -194,8 +206,8 @@ export const StyledExtraUl = styled.ul`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     width: 100%;
+
     li {
       width: 80%;
       height: 480px;
@@ -203,8 +215,24 @@ export const StyledExtraUl = styled.ul`
       flex-direction: column;
       padding-top: 22px;
     }
+
+    li h2 {
+      font-size: 14px;
+    }
+
     li .linkContent {
       margin-left: 0px;
+      margin-top: 10px;
+    }
+
+    li strong {
+      font-size: 13px;
+    }
+
+    li a {
+      margin: 10px;
+      padding: 6px;
+      margin-left: 50px;
     }
   }
 `;
