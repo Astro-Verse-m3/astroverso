@@ -38,36 +38,34 @@ export const Extras = () => {
       <section>
         <span>Recomendações</span>
         <h1>Quer saber mais sobre Astronomia?</h1>
-      </section>
-      <div className="discoveryBox">
-        <div>
-          <button value="Livro" onClick={() => setfilter("Livro")}>
-            <img src={bookIcon} alt="" />
-          </button>
-          <button value="Filme" onClick={() => setfilter("Filme")}>
-            <img src={movieIcon} alt="" />
-          </button>
-          <button value="Série" onClick={() => setfilter("Série")}>
-            <img src={serieIcon} alt="" />
-          </button>
-          <button
-            value="Documentário"
-            onClick={() => setfilter("Documentário")}
-          >
-            <img src={documentaryIcon} alt="" />
-          </button>
-          <button value="Todos" onClick={() => setfilter("Todos")}>
-            <img src={allIcon} alt="" />
-          </button>
+        <div className="discoveryBox">
+          <div>
+            <button  title="Livros" value="Livro" onClick={() => setfilter("Livro")} className={filter==="Livro"?"active":""}>
+              <img src={bookIcon} alt="" />
+            </button>
+            <button title="Filmes" value="Filme" onClick={() => setfilter("Filme")} className={filter==="Filme"?"active":""}>
+              <img src={movieIcon} alt="" />
+            </button>
+            <button title="Séries" value="Série" onClick={() => setfilter("Série")} className={filter==="Série"?"active":""}>
+              <img src={serieIcon} alt="" />
+            </button>
+            <button title="Documentários" value="Documentário" onClick={() => setfilter("Documentário")} className={filter==="Documentário"?"active":""}>
+              <img src={documentaryIcon} alt="" />
+            </button>
+            <button title="Todos" value="Todos" onClick={() => setfilter("Todos")} className={filter==="Todos"?"active":""}>
+              <img src={allIcon} alt="" />
+            </button>
+          </div>
+          <input
+            type="text"
+            placeholder="Pesquisar na lista..."
+            onChange={(event) =>
+              setContentsSearch(event.target.value.toLowerCase())
+            }
+          />
         </div>
-        <input
-          type="text"
-          placeholder="Pesquisar na lista..."
-          onChange={(event) =>
-            setContentsSearch(event.target.value.toLowerCase())
-          }
-        />
-      </div>
+      </section>
+
       <StyledExtraUl>
         {filterContent
           .filter((content) => {

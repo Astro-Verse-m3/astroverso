@@ -12,11 +12,14 @@ export const StyledExtraDiv = styled.div`
   background-repeat: no-repeat;
 
   section {
+    display: flex;
+    flex-direction: column;
     font-family: var(--font-family-Raleway);
+    max-width: 1165px;
     color: var(--color-grey-2);
     font-size: var(--title-5);
-    margin-left: 50px;
-    margin-top: 20px;
+    margin: 0 auto;
+    margin-top: 10px;
   }
 
   section h1 {
@@ -29,10 +32,10 @@ export const StyledExtraDiv = styled.div`
   .discoveryBox {
     display: flex;
     align-items: center;
-    margin-left: 50px;
     margin-top: 15px;
     margin-bottom: 15px;
     flex-wrap: nowrap;
+    justify-content: space-between;
     flex-direction: row;
   }
 
@@ -49,11 +52,10 @@ export const StyledExtraDiv = styled.div`
     border-radius: 50px;
     height: 35px;
     flex-wrap: nowrap;
-    :hover {
-      color: var(--color-grey-2);
-      transition: 1s;
-      background-color: #003b4a;
-    }
+  }
+
+  .discoveryBox div button.active {
+    background-color: #003b4a;
   }
 
   input {
@@ -68,7 +70,7 @@ export const StyledExtraDiv = styled.div`
     padding-left: 10px;
   }
 
-  @media (max-width: 743px) {
+  @media (max-width: 764px) {
     flex-direction: column;
     section {
       margin: 0px;
@@ -110,6 +112,26 @@ export const StyledExtraDiv = styled.div`
       margin-bottom: 10px;
     }
   }
+
+  @media (min-width: 765px) and (max-width: 1166px) {
+    section {
+      margin: 0 auto;
+      max-width: 762px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+}
+
+@media (width: 1166px) {
+    section {
+      margin: 0 auto;
+      max-width: 1200px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+}
 `;
 
 export const StyledExtraUl = styled.ul`
@@ -120,7 +142,7 @@ export const StyledExtraUl = styled.ul`
   flex-wrap: wrap;
   margin: 0 auto;
   padding: 0px;
-  gap: 20px;
+  gap: 40px;
 
   li {
     width: 100%;
@@ -133,6 +155,7 @@ export const StyledExtraUl = styled.ul`
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
+    margin-top: 20px;
     gap: 10px;
     color: var(--color-grey-1);
   }
