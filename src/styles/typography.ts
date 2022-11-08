@@ -69,11 +69,8 @@ export const StyledTitle = styled(BaseTitle)<iTextProps>`
       case "one":
         return css`
           align-self: end;
-          text-decoration: underline;
-        `;
-      case "two":
-        return css`
-          //para quando tiver outra opção
+          border-bottom: 1px solid;
+          padding-bottom: 1px;
         `;
     }
   }}
@@ -101,14 +98,18 @@ ${({ editText }) => {
             margin-top: 60px;
           }
 
-          /* @media (min-height: 1180px) {
+          @media (min-height: 1024px) {
             margin-top: 100px;
           }
 
-          @media (min-height: 1368px) {
+          @media (min-height: 1180px) {
             margin-top: 120px;
+          }
+
+          @media (min-height: 1368px) {
+            margin-top: 140px;
             font-size: var(--title-6);
-          } */
+          }
         `;
       case "two":
         return css`
@@ -119,17 +120,21 @@ ${({ editText }) => {
           @media (min-width: 760px) {
             font-size: var(--title-5);
           }
+
+          @media (min-height: 1024px) {
+            font-size: var(--title-4);
+          }
         `;
       case "three":
         return css`
-          /* @media (min-height: 800px) {
-            font-size: var(--paragraph-1);
-            font-weight: var(--font-weigth-bold);
-          } */
+          font-size: var(--author-1);
 
-          @media (min-width: 760px) {
+          @media (min-height: 800px) {
             font-size: var(--paragraph-1);
+          }
 
+          @media (min-height: 1024px) {
+            font-size: var(--title-5);
           }
         `;
     }

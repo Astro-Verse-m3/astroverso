@@ -17,14 +17,24 @@ export const StyledLink = styled(Link)<iStyledLink>`
             padding: 7px 45px;
             font-size: var(--title-5);
           }
+
+          @media (min-height: 1024px) {
+            font-size: var(--title-4);
+          }
         `;
       case "two":
         return css`
           font-size: var(--paragraph-2);
           color: var(--color-grey-2);
           font-weight: var(--font-weight-regular);
-          text-decoration: underline;
+          border-bottom: 1px solid;
+          padding-bottom: 1px;
           margin-left: 5px;
+          transition: 0.5s ease-in-out;
+     
+          &: hover {
+            color: var( --color-secondary);
+          }
 
           @media (min-width: 325px) {
             margin-left: 10px;
@@ -34,6 +44,10 @@ export const StyledLink = styled(Link)<iStyledLink>`
           @media (min-width: 760px) {
             margin-left: 10px;
             font-size: var(--title-5);
+          }
+
+          @media (min-height: 1024px) {
+            font-size: var(--title-4);
           }
         `;
     }

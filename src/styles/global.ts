@@ -78,7 +78,7 @@ export const GlobalStyle = createGlobalStyle`
         --linear-gradient-3: #080808;
         --color-transparecy-1: rgba(0, 0, 0, 0.25);
         --color-transparecy-2: rgba(180, 198, 232, 0.3);
-        --feedback-negative: #e50c0c;
+        --feedback-negative: #fd5454;
         --feedback-sucess: #5Bf44d;
 
         /* Size Elements */

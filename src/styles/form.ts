@@ -14,10 +14,15 @@ export const StyledForm = styled.form`
   align-items: center;
   justify-content: center;
 
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-
   position: relative;
+
+  & > div:nth-child(1) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
   @media (min-width: 500px) {
     width: 80%;
@@ -26,7 +31,20 @@ export const StyledForm = styled.form`
   @media (min-width: 760px) {
     max-width: 700px;
     height: 65%;
-    margin-bottom: 35px;
+  }
+
+  @media (min-height: 840px) {
+    height: 55%;
+  }
+
+  @media (min-height: 1024px) {
+    height: 65%;
+    margin-bottom: 55px;
+  }
+
+  @media (min-height: 1368px) {
+    height: 60%;
+    margin-bottom: 135px;
   }
 
   img {

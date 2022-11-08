@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
+import { motion } from "framer-motion";
 
 import { UserContext } from "../../contexts/UserContext";
 import { formSchemaLogin } from "./schemaLogin";
@@ -16,7 +16,7 @@ import { CiMail } from "react-icons/ci";
 import { StyledButton } from "../../styles/button";
 import { StyledInputsForm } from "../../styles/inputs";
 
-export const  FormLogin = () => {
+export const FormLogin = () => {
   const { login } = useContext(UserContext);
 
   const {
@@ -26,7 +26,13 @@ export const  FormLogin = () => {
   } = useForm<iUserLogin>({ resolver: yupResolver(formSchemaLogin) });
 
   return (
-      <StyledForm onSubmit={handleSubmit(login)}>
+    <StyledForm onSubmit={handleSubmit(login)}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+      >
         <img src={Astronaut} alt="gif de astronauta" />
         <div className="inputs-login">
           <StyledInputsForm margin="one">
@@ -74,6 +80,7 @@ export const  FormLogin = () => {
             </StyledLink>
           </StyledTitle>
         </div>
-      </StyledForm>
+      </motion.div>
+    </StyledForm>
   );
 };
