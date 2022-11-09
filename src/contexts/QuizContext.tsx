@@ -1,34 +1,5 @@
 import React, { createContext, useState } from "react";
-
-interface iContextInterface {
-  myQuiz: iMyQuiz | null;
-  setMyQuiz: React.Dispatch<React.SetStateAction<iMyQuiz | null>>;
-
-  answerSelected: null | iAnswer;
-  setAnswerSelected: React.Dispatch<React.SetStateAction<null | iAnswer>>;
-}
-interface iMyOptions {
-  answer: string;
-  point: number;
-}
-
-export interface iMyQuests {
-  id: number;
-  title: string;
-  options: iMyOptions[];
-}
-
-interface iMyQuiz {
-  questions: iMyQuests[];
-}
-
-interface iAnswer {
-  point: number;
-}
-
-export interface iProps {
-  children: React.ReactNode;
-}
+import { iAnswer, iContextInterface, iMyQuiz, iProps } from "./typeContext";
 
 export const QuizContext = createContext({} as iContextInterface);
 
