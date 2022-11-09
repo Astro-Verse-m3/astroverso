@@ -1,21 +1,5 @@
 import React, { createContext, useState } from "react";
-import { iProps } from "./QuizContext";
-
-interface iQuizModalInterface {
-  showModal: boolean;
-  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
-  modalContents: "todos" | "planetas" | "estrelas";
-  setModalContents: React.Dispatch<
-    React.SetStateAction<"todos" | "planetas" | "estrelas">
-  >;
-  currentQuest: number;
-  setCurrentQuest: React.Dispatch<React.SetStateAction<number>>;
-  points: number;
-  setPoints: React.Dispatch<React.SetStateAction<number>>;
-  showPoints: boolean;
-  setShowPoints: React.Dispatch<React.SetStateAction<boolean>>;
-  answerQuestion: (point: number) => void;
-}
+import { iProps, iQuizModalInterface } from "./typeContext";
 
 export const QuizModalContext = createContext({} as iQuizModalInterface);
 
