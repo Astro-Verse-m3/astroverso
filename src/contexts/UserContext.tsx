@@ -22,7 +22,7 @@ export const UserProvider = ({ children }: iChildren) => {
       localStorage.setItem("@astroverso:id", response.data.user.id);
       setUser(response.data.user);
       navigate("/dashboard");
-      toast.success("Login realizado com sucesso.")
+      toast.success("Login realizado com sucesso.");
     } catch (error) {
       console.log(error);
       toast.error("Email e/ou senha são inválidos");
@@ -32,7 +32,7 @@ export const UserProvider = ({ children }: iChildren) => {
   const signUp = async (data: iUserRegister) => {
     delete data.confirmPassword;
     try {
-      const userData = { ...data, score: 0, favoritesPosts: [] } 
+      const userData = { ...data, score: 0, favoritesPosts: [] };
       await ApiRequests.post("register", userData);
       navigate("/login");
       toast.success("Cadastro realizado com sucesso.");
@@ -44,10 +44,8 @@ export const UserProvider = ({ children }: iChildren) => {
 
   useEffect(() => {
     const token = localStorage.getItem("@astroverso:token");
-    if (!token) {
-      navigate("/login");
-    } else if (token) {
-      navigate("/dashboard");
+    if (token) {
+      navigate("dashboard");
     }
   }, []);
 
