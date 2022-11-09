@@ -48,9 +48,29 @@ export const UserProvider = ({ children }: iChildren) => {
       navigate("dashboard");
     }
   }, []);
+  
+  const getWindowSize = () => {
+		const { innerWidth } = window;
+		return { innerWidth };
+	};
+
+	const [windowSize, setWindowSize] = useState(getWindowSize());
+
+	useEffect(() => {
+		const handleWindowResize = () => {
+			setWindowSize(getWindowSize());
+		};
+
+		window.addEventListener("resize", handleWindowResize);
+
+		return () => {
+			window.removeEventListener("resize", handleWindowResize);
+		};
+	}, []);
+
 
   return (
-    <UserContext.Provider value={{ user, setUser, login, signUp }}>
+    <UserContext.Provider value={{ user, setUser, login, signUp,windowSize }}>
       {children}
     </UserContext.Provider>
   );

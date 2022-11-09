@@ -15,7 +15,8 @@ export const UserAvatar = () => {
 					borderRadius: "100%"
 				}}
 				src={AvatarNotLogged}
-				alt="usuario"
+				alt="user"
+				title="user"
 			/>
 			<Avatar.Fallback delayMs={600}>U</Avatar.Fallback>
 		</Avatar.Root>
