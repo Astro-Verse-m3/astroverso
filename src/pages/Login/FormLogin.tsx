@@ -27,13 +27,14 @@ export const FormLogin = () => {
 
   return (
     <StyledForm onSubmit={handleSubmit(login)}>
+        <img src={Astronaut} alt="gif de astronauta" />
       <motion.div
+        className="motion"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 1 }}
       >
-        <img src={Astronaut} alt="gif de astronauta" />
         <div className="inputs-login">
           <StyledInputsForm margin="one">
             <CiMail />

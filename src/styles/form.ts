@@ -16,7 +16,7 @@ export const StyledForm = styled.form`
 
   position: relative;
 
-  & > div:nth-child(1) {
+  .motion {
     width: 100%;
     display: flex;
     flex-direction: column;
