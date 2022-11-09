@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, createContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 import { iUserLogin } from "../pages/Login/typeLogin";
 import { iUserRegister } from "../pages/Register/typeRegister";
@@ -21,8 +22,10 @@ export const UserProvider = ({ children }: iChildren) => {
       localStorage.setItem("@astroverso:id", response.data.user.id);
       setUser(response.data.user);
       navigate("/dashboard");
+      toast.success("Login realizado com sucesso.")
     } catch (error) {
       console.log(error);
+      toast.error("Email e/ou senha são inválidos");
     }
   };
 
@@ -32,8 +35,10 @@ export const UserProvider = ({ children }: iChildren) => {
       const userData = { ...data, score: 0, favoritesPosts: [] } 
       await ApiRequests.post("register", userData);
       navigate("/login");
+      toast.success("Cadastro realizado com sucesso.");
     } catch (error) {
       console.log(error);
+      toast.error("E-mail já cadastrado");
     }
   };
 
