@@ -1,14 +1,19 @@
 import React from "react";
-import { Carousel } from "./Carousel/Carousel";
-import { Footer } from "./Footer/Footer";
-import { HeaderMenu } from "./HeaderMenu/HeaderMenu";
+
+import { Footer } from "../../components/Footer/Footer";
+import { Carousel } from "../../components/Carousel/Carousel";
+import HeaderMenu from "../../components/Header/HeaderMenu/HeaderMenu";
+
 import { StyledHomeContainer } from "./style";
+import { planetsList } from "../../components/Slider";
 
 export const Home = () => {
 	return (
 		<StyledHomeContainer>
 			<HeaderMenu />
-			<Carousel />
+			<div>
+				<Carousel astroList={planetsList} />
+			</div>
 			<Footer />
 		</StyledHomeContainer>
 	);

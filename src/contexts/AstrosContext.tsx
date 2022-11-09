@@ -1,31 +1,26 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useState, createContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-hot-toast";
+import { useState, createContext, useEffect, useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-import { iUserLogin } from "../pages/Login/typeLogin";
-import { iUserRegister } from "../pages/Register/typeRegister";
-import { ApiRequests } from "../services/ApiRequest";
-import { iChildren, iUser, iUserContextProps } from "./typeContext";
+import { iChildren } from "./typeContext";
+import { UserContext } from "./UserContext";
 
-export const UserContext = createContext({} as iUserContextProps);
+export const AstrosContext = createContext({});
 
-export const UserProvider = ({ children }: iChildren) => {
-	const [user, setUser] = useState<iUser | null>(null);
+export const AstrosProvider = ({ children }: iChildren) => {
+	const { user } = useContext(UserContext);
 
+	const { id } = useParams();
 	const navigate = useNavigate();
 
-	const login = async (data: iUserLogin) => {
+	/*const login = async (data: iUserLogin) => {
 		try {
 			const response = await ApiRequests.post("login", data);
 			localStorage.setItem("@astroverso:token", response.data.accessToken);
 			localStorage.setItem("@astroverso:id", response.data.user.id);
 			setUser(response.data.user);
 			navigate("/dashboard");
-			toast.success("Login realizado com sucesso.");
 		} catch (error) {
 			console.log(error);
-			toast.error("Email e/ou senha são inválidos");
 		}
 	};
 
@@ -35,10 +30,8 @@ export const UserProvider = ({ children }: iChildren) => {
 			const userData = { ...data, score: 0, favoritesPosts: [] };
 			await ApiRequests.post("register", userData);
 			navigate("/login");
-			toast.success("Cadastro realizado com sucesso.");
 		} catch (error) {
 			console.log(error);
-			toast.error("E-mail já cadastrado");
 		}
 	};
 
@@ -68,11 +61,8 @@ export const UserProvider = ({ children }: iChildren) => {
 		return () => {
 			window.removeEventListener("resize", handleWindowResize);
 		};
-	}, []);
+	}, []);*/
 
-	return (
-		<UserContext.Provider value={{ user, setUser, login, signUp, windowSize }}>
-			{children}
-		</UserContext.Provider>
-	);
+	return <AstrosContext.Provider value={{}}>{children}</AstrosContext.Provider>;
 };
+//user, setUser, login, signUp, windowSize
