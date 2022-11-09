@@ -68,6 +68,7 @@ export const StyledExtraDiv = styled.div`
     height: 39px;
     margin-left: 20px;
     padding-left: 10px;
+    color: var(--color-grey-2);
   }
 
   @media (max-width: 764px) {
