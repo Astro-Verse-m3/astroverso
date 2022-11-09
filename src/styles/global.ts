@@ -1,4 +1,65 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, css } from "styled-components";
+
+export const fadeInAnimation = css`
+	@keyframes appear {
+		0% {
+			transform: translateY(0%, 0%);
+			opacity: 0;
+		}
+
+		100% {
+			transform: translateY(0%, 1%);
+			opacity: 1;
+		}
+	}
+`;
+
+export const fadeOutAnimation = css`
+	@keyframes disappear {
+		0% {
+			opacity: 1;
+			transform: translate(0%, 0%);
+		}
+
+		100% {
+			opacity: 0;
+			transform: translate(0%, 1%);
+		}
+	}
+`;
+
+/* Underline progress hover effect */
+export const underlineHoverEffect = css`
+	&:before,
+	&:after {
+		position: absolute;
+		-webkit-transition: all 0.35s ease;
+		transition: all 0.35s ease;
+	}
+
+	&:before {
+		display: block;
+		height: 1px;
+		width: 0%;
+		top: 85%;
+		content: "";
+		background-color: var(--color-grey-0);
+	}
+
+	&:after {
+		max-width: 0%;
+		overflow: hidden;
+	}
+
+	&:hover:before {
+		opacity: 1;
+		width: 100%;
+	}
+
+	&:hover:after {
+		max-width: 100%;
+	}
+`;
 
 export const GlobalStyle = createGlobalStyle`
     /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -6,7 +67,7 @@ export const GlobalStyle = createGlobalStyle`
     License: none (public domain)
     */
 
-    html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, a, img, small, strong, form, label, article, aside, figure, figcaption, footer, header, nav, section, button, textarea, option, input, select {
+    html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, a, img, small, strong, form, label, article, aside, figure, figcaption, footer, header, nav, section, button, textarea, option, input, select,ul,li {
         margin: 0;
         padding: 0;
 
@@ -56,6 +117,130 @@ export const GlobalStyle = createGlobalStyle`
 
         transition: 0.3s;
     }
+
+    .mobile-dropmenu-trigger{
+        color: var(--color-grey-2);
+        font-size: var(--height-2);
+        opacity: 0.8;
+
+        & > svg {
+            pointer-events: none;
+        }
+    }
+
+    .dropdown-portal {
+        z-index: 2 !important;
+    }
+    
+    .dropmenu-content {
+        width: calc(var(--height-1) * 4);
+        margin-right: var(--gap-6);
+        margin-top: var(--radius-1);
+		
+		padding: var(--gap-4);
+        padding-top: var(--gap-5);
+        
+        background-color: var(--color-grey-1);
+		border-radius: var(--radius-1);
+
+        ${fadeInAnimation}
+        ${fadeOutAnimation}
+
+        
+        animation-name:  "appear";
+        animation-timing-function: ease-in;
+        animation-duration: 0.8s;
+    
+        div.menu-item{
+            padding-left: var(--gap-6);
+
+            &>a, &>svg{
+                color: var(--color-primary-darker);
+            }
+
+            &:hover a,
+            &:hover svg {
+                color: var(--color-primary-1);
+            }
+        }
+        
+	}
+    
+    .dropmenu-content.mobile {
+		min-height: calc(var(--height-1) * 5.5);
+	}
+    
+    .dropmenu-content.desktop{
+        min-height: calc(var(--height-1) * 2.5);
+        max-width: calc(var(--height-1) * 3.25);
+    }
+
+    .menu-item{
+        width: var(--width-1);
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: var(--gap-4); 
+        
+
+        svg {
+            font-size: var(--title-4);
+            color: var(--color-grey-2);
+
+        }
+
+        &:hover a,
+        &:hover svg {
+            color: var(--color-grey-0);
+        }     
+        
+        &:nth-child(3) a{
+            color: var(--color-secondary);
+        }
+    }
+   
+    .dropmenu-separator{
+        width:  calc(var(--height-1) * 3.55);
+        height: 1px;
+        margin: 14px;
+        
+        position:   absolute;
+        inset: 0;
+        top: 16%;
+        
+        background-color: var(--color-grey-3);
+    }
+
+    .dropmenu-separator.logged{
+        margin: 10px;
+        top: 66%;
+    }
+
+    .dropmenu-arrow{
+        width: var(--gap-2);
+        height: var(--gap-5);
+        
+        margin-top: -5px;
+        margin-right: var(--gap-6);
+        
+        fill: var(--color-grey-1);
+        /*  fill: var(--color-primary-darker); */
+
+        @media screen and (min-width: 820px) {
+            margin-top: -5px;
+        }
+    }
+
+    .divider-vertical {
+		width: 1px;
+		height: var(--width-1);
+	}
+
+	.divider-horizontal {
+		width: var(--width-1);
+		height: 1px;
+	}
 
     :root {
         --font-family-Raleway: 'Raleway', sans-serif;
@@ -131,12 +316,12 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     ::-webkit-scrollbar-thumb {
-        background-color: var(--color-primary-darker);
+        background-color: var(--color-primary-focus);
         border-radius: var(--radius-1);
     }
 
     ::-webkit-scrollbar-track {
-        background-color: var(--color-transparecy);
+        background-color: var(--color-primary-darker);
         border-radius: var(--radius-1);
     }
 `;
@@ -144,6 +329,73 @@ export const GlobalStyle = createGlobalStyle`
 export const StyledContainer = styled.div`
 	width: var(--width-1);
 	max-width: var(--width-1);
+	height: var(--width-1);
 	margin: 0 auto;
-	padding: var(--gap-5) var(--gap-3);
+
+	padding: var(--gap-5) var(--gap-1);
+
+	@media screen and (min-width: 540px) {
+		/* max-width: calc(var(--width-2) / 2.52); */
+		max-width: calc(var(--width-2) / 2.45);
+		padding: var(--gap-5) 0;
+	}
+
+	@media screen and (min-width: 768px) {
+		padding: var(--gap-5) var(--gap-1);
+		max-width: var(--width-1);
+	}
+
+	@media screen and (min-width: 1024px) {
+		max-width: calc(var(--width-2) / 1.25);
+	}
+
+	@media screen and (min-width: 1366px) {
+		max-width: var(--width-2);
+	}
+`;
+
+export const TooltipCSS = css`
+	&:hover .tooltip-text {
+		display: block;
+		opacity: 1;
+	}
+
+	& > .tooltip-text {
+		display: none;
+		min-width: 120px;
+		background-color: var(--color-grey-3);
+		color: var(--color-grey-1);
+		text-align: center;
+		border-radius: 8px;
+		padding: 4px 0;
+		position: absolute;
+		z-index: 1;
+		bottom: 125%;
+		left: 50%;
+		margin-left: -60px;
+		opacity: 0;
+		transition: opacity 0.3s;
+
+		&::after {
+			content: attr(aria-label);
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			margin-left: -5px;
+			border-width: 8px;
+			border-style: solid;
+			border-color: var(--color-grey-3) transparent transparent transparent;
+		}
+	}
+
+	@media screen and (min-width: 1024px) {
+		& > .tooltip-text {
+			bottom: -100%;
+
+			&::after {
+				top: -60%;
+				transform: rotate(180deg);
+			}
+		}
+	}
 `;

@@ -10,4 +10,8 @@ export const StyledHomeContainer = styled.div`
 	background-size: cover;
 	background-position: center top;
 	background-repeat: no-repeat;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 `;
