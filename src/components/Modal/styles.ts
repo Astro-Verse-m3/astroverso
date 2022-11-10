@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const StyledModalContainer = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
+  z-index: 99999999;
   background-color: transparent;
   display: flex;
   align-items: center;
@@ -18,6 +19,7 @@ export const StyledModalCard = styled.div`
   border-radius: 20px;
   background-color: rgb(25, 24, 49, 0.8);
   backdrop-filter: blur(25px);
+  color: #fff;
 
   .close-button {
     background-color: #d0cedd;
