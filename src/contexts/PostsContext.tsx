@@ -1,7 +1,7 @@
-import { createContext, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { ApiRequests } from '../services/ApiRequest';
-import { iChildren } from './typeContext';
+import { createContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { ApiRequests } from "../services/ApiRequest";
+import { iChildren } from "./typeContext";
 
 interface iPlanetsPosts {
   id: number;
@@ -40,9 +40,9 @@ export const PostsProvider = ({ children }: iChildren) => {
   const [planetPosts, setPlanetPosts] = useState<iPlanetsPosts[] | null>([]);
   const [starPosts, setStarPosts] = useState<iStarPosts[] | null>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [category, setCategory] = useState<string | null>('');
-  const [astroName, setAstroName] = useState<string | null>('');
+  const [showModal, setShowModal] = useState<boolean>(true);
+  const [category, setCategory] = useState<string | null>("");
+  const [astroName, setAstroName] = useState<string | null>("");
 
   const location = useLocation();
 
@@ -69,7 +69,7 @@ export const PostsProvider = ({ children }: iChildren) => {
     setLoading(true);
 
     try {
-      const response = await ApiRequests.get('posts/?category=estrelas');
+      const response = await ApiRequests.get("posts/?category=estrelas");
       setStarPosts(response.data);
       setAstroName(response.data[0].starName);
     } catch (error) {

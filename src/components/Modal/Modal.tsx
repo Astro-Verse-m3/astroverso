@@ -1,4 +1,4 @@
-import { PostsContext } from '../../contexts/PostsContext';
+import { PostsContext } from "../../contexts/PostsContext";
 
 import {
   StyledModalContainer,
@@ -6,15 +6,15 @@ import {
   StyledCardName,
   StyledCardContent,
   StyledBottomButtons,
-} from './styles';
-import { AnimatedImage } from '../3dImage/3dImage';
-import { MdClose } from 'react-icons/md';
+} from "./styles";
+import { AnimatedImage } from "../3dImage/3dImage";
+import { MdClose } from "react-icons/md";
 import {
   HiOutlineArrowNarrowLeft,
   HiOutlineArrowNarrowRight,
-} from 'react-icons/hi';
-import { BiLoaderAlt } from 'react-icons/bi';
-import { useContext, useEffect, useState } from 'react';
+} from "react-icons/hi";
+import { BiLoaderAlt } from "react-icons/bi";
+import { useContext, useEffect, useState } from "react";
 
 export const Modal = () => {
   const {
@@ -45,7 +45,7 @@ export const Modal = () => {
   }, [page]);
 
   useEffect(() => {
-    if (category === 'estrelas') {
+    if (category === "estrelas") {
       getStarPosts();
     } else {
       postsById(1);
@@ -55,7 +55,7 @@ export const Modal = () => {
   return (
     <StyledModalContainer>
       <StyledModalCard>
-        <button className="close-button" onClick={setShowModal(false)}>
+        <button className="close-button" onClick={() => setShowModal}>
           <MdClose />
         </button>
         <main>
@@ -71,7 +71,7 @@ export const Modal = () => {
               </StyledCardName>
               <StyledCardContent>
                 <h3>Curiosidade:</h3>
-                {category === 'estrelas' ? (
+                {category === "estrelas" ? (
                   <p>{starPosts && starPosts[page].description}</p>
                 ) : (
                   <p>{planetPosts && planetPosts[page].description}</p>
