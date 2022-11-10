@@ -11,13 +11,14 @@ export const StyledModalContainer = styled.div`
 `;
 
 export const StyledModalCard = styled.div`
-  backdrop-filter: blur(25px);
   height: 30rem;
   width: 46%;
-  border-radius: 20px;
   position: relative;
   padding: 3rem 2rem;
-
+  border-radius: 20px;
+  background-color: rgb(25, 24, 49, 0.8);
+  backdrop-filter: blur(25px);
+  
   .close-button {
     background-color: #d0cedd;
     color: #000;
@@ -43,6 +44,21 @@ export const StyledModalCard = styled.div`
   main {
     display: flex;
     align-items: center;
+  }
+  
+.loader-container {
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .loader-img {
+    animation: spin 2s infinite linear;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 2rem;
   }
 
   @media screen and (max-width: 1172px) {
@@ -96,12 +112,14 @@ export const StyledCardName = styled.div`
   }
 `;
 
-export const StyledCardContent = styled.div`
-  width: 50%;
-  font-family: 'Nunito', sans-serif;
-  height: 15rem;
-  overflow: auto;
 
+ export const StyledCardContent = styled.div` 
+  width: 50%;
+  height: 15rem;
+  padding: 0 10px;
+  overflow: auto;
+  font-family: 'Nunito', sans-serif;
+  
   h3 {
     font-weight: 700;
     font-size: 18px;
