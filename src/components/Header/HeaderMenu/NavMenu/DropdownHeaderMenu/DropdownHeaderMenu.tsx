@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StyledMenuLink as Link } from "../../style";
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
@@ -15,12 +15,12 @@ import { StyledHeaderDropdown } from "../../style";
 import { iDropdownUserProps } from "./typeDropdowns";
 import { StyledTitle } from "../../../../../styles/typography";
 import { UserContext } from "../../../../../contexts/UserContext";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { AstrosContext } from "../../../../../contexts/AstrosContext";
 
 export const DropdownHeaderMenu = ({ windowSize }: iDropdownUserProps) => {
 	const { user, userLogout } = useContext(UserContext);
-	const { getAstroByCategory } = useContext(AstrosContext);
+	const { pathName } = useContext(AstrosContext);
 
 	return (
 		<DropdownMenu.Root>
@@ -64,26 +64,42 @@ export const DropdownHeaderMenu = ({ windowSize }: iDropdownUserProps) => {
 
 							<DropdownMenu.Item className="menu-item">
 								<IoPlanet />
-								<Link to="/planetas" onClick={() => getAstroByCategory()}>
+								<Link
+									to="/planets"
+									className={pathName === "planets" ? "active" : ""}
+								>
 									Planetas
 								</Link>
 							</DropdownMenu.Item>
 
 							<DropdownMenu.Item className="menu-item">
 								<BsStars />
-								<Link to="/stars" onClick={() => getAstroByCategory()}>
+								<Link
+									to="/stars"
+									className={pathName === "stars" ? "active" : ""}
+								>
 									Estrelas
 								</Link>
 							</DropdownMenu.Item>
 
 							<DropdownMenu.Item className="menu-item">
 								<MdQuiz />
-								<Link to="/quiz">Quiz</Link>
+								<Link
+									to="/quiz"
+									className={pathName === "quiz" ? "active" : ""}
+								>
+									Quiz
+								</Link>
 							</DropdownMenu.Item>
 
 							<DropdownMenu.Item className="menu-item">
 								<BsPatchPlusFill />
-								<Link to="/extra">Extras</Link>
+								<Link
+									to="/extra"
+									className={pathName === "extra" ? "active" : ""}
+								>
+									Extras
+								</Link>
 							</DropdownMenu.Item>
 						</>
 					)}
@@ -96,7 +112,12 @@ export const DropdownHeaderMenu = ({ windowSize }: iDropdownUserProps) => {
 						<>
 							<DropdownMenu.Item className="menu-item" key="Perfil">
 								<FaUserAstronaut />
-								<Link to="/dashboard">Perfil</Link>
+								<Link
+									to="/dashboard"
+									className={pathName === "dashboard" ? "active" : ""}
+								>
+									Perfil
+								</Link>
 							</DropdownMenu.Item>
 
 							<DropdownMenu.Item className="menu-item">

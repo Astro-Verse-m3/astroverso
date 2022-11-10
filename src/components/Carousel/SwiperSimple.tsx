@@ -19,7 +19,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import "../Slider/Slider.css";
-import { planetsList } from "../Slider";
 
 const SwiperSimple = () => {
 	const { astroList } = useContext(AstrosContext);
@@ -54,8 +53,8 @@ const SwiperSimple = () => {
 					}
 				}}
 			>
-				{planetsList.map(astro => (
-					<SwiperSlide>
+				{astroList.map(astro => (
+					<SwiperSlide key={astro.id}>
 						<Card typeCard="astroCard" astroCard={astro} />
 					</SwiperSlide>
 				))}

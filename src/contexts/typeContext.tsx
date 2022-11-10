@@ -1,6 +1,6 @@
 import { iUserLogin } from "../pages/Login/typeLogin";
 import { iUserRegister } from "../pages/Register/typeRegister";
-
+import { Location, Params } from "react-router-dom";
 export interface iChildren {
 	children: React.ReactNode;
 }
@@ -36,12 +36,13 @@ export interface iUserContextProps {
 	windowSize: {
 		innerWidth: number;
 	};
+	userLogout: () => void;
 }
 
 export interface iAstro {
 	id: number;
 	name: string;
-	image?: string;
+	image: string;
 }
 
 export interface iQuizModalInterface {
@@ -91,8 +92,6 @@ export interface iProps {
 }
 
 export interface iAstrosContextProps {
-	getAstroByCategory(): Promise<void>;
 	astroList: iAstro[];
-	astrosCategories: string[];
+	pathName: string;
 }
-//category: string | undefined

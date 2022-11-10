@@ -16,6 +16,7 @@ export const MainRoutes = () => {
 			<Routes>
 				<Route path="/">
 					<Route index element={<Home />} />
+					<Route path=":category" element={<Home />} />
 					<Route path="login" element={<Login />} />
 					<Route path="register" element={<Register />} />
 					<Route path="extra" element={<Extras />} />

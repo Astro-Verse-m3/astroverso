@@ -7,7 +7,7 @@ import { StyledButtonCard, StyledCard, StyledContainerImg } from "./style";
 const Card = ({ astroCard, quizCard, typeCard }: iCardProps) => {
 	return (
 		<>
-			<StyledCard>
+			<StyledCard id={`${astroCard?.id}`}>
 				<StyledContainerImg>
 					<img
 						src={
