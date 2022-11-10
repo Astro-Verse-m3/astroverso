@@ -1,3 +1,5 @@
+import { PostsContext } from '../../contexts/PostsContext';
+
 import {
   StyledModalContainer,
   StyledModalCard,
@@ -11,39 +13,65 @@ import {
   HiOutlineArrowNarrowLeft,
   HiOutlineArrowNarrowRight,
 } from 'react-icons/hi';
+import { BiLoaderAlt } from 'react-icons/bi';
+import { useContext, useEffect, useState } from 'react';
 
 export const Modal = () => {
+  const { postsById, loading, planetPosts, setShowModal } =
+    useContext(PostsContext);
+  const [page, setPage] = useState(0);
+  const [isNextPageDisabled, setIsNextPageDisabled] = useState(false);
+  const [isPrevPageDisabled, setIsPrevPageDisabled] = useState(true);
+
+  const nextPost = () => {
+    return page === 4 ? setPage(4) : setPage(page + 1);
+  };
+
+  const prevPost = () => {
+    return page === 0 ? setPage(0) : setPage(page - 1);
+  };
+
+  useEffect(() => {
+    page === 0 ? setIsPrevPageDisabled(true) : setIsPrevPageDisabled(false);
+    page === 4 ? setIsNextPageDisabled(true) : setIsNextPageDisabled(false);
+  }, [page]);
+
+  useEffect(() => {
+    postsById(1);
+  }, []);
+
   return (
     <StyledModalContainer>
       <StyledModalCard>
-        <button className="close-button">
+        <button className="close-button"  onClick={setShowModal(false)}>
           <MdClose />
         </button>
         <main>
-          <StyledCardName>
-            <AnimatedImage src="Mercury.glb" />
-            <h2>Mercúrio</h2>
-          </StyledCardName>
-          <StyledCardContent>
-            <h3>Curiosidade:</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit qui
-              veritatis, nam similique ratione pariatur quidem dolorum vitae
-              perferendis aspernatur doloribus incidunt in expedita repellendus
-              iure fugit deleniti obcaecati nemo! Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Recusandae fugit magni molestias
-              similique facilis libero soluta? Ipsum quasi magni molestias
-              aliquid! Illo, eligendi iste! Non molestias nemo maxime dolorem
-              minus.
-            </p>
-          </StyledCardContent>
+           {loading ? (
+            <div className="loader-container">
+              <BiLoaderAlt className="loader-img" />
+            </div>
+          ) : (
+            <>
+              <StyledCardName>
+                <AnimatedImage
+                  src={`${planetPosts && planetPosts[0].planetName}.glb`}
+                />
+                <h2>{`${planetPosts && planetPosts[0].planetName}`}</h2>
+              </StyledCardName>
+              <StyledCardContent>
+                <h3>Curiosidade:</h3>
+                <p>{planetPosts && planetPosts[page].description}</p>
+              </StyledCardContent>
+            </>
+          )}
         </main>
 
         <StyledBottomButtons>
-          <button>
+          <button onClick={() => prevPost()} disabled={isPrevPageDisabled}>
             <HiOutlineArrowNarrowLeft />
           </button>
-          <button>
+          <button onClick={() => prevPost()} disabled={isPrevPageDisabled}>
             <HiOutlineArrowNarrowRight />
           </button>
         </StyledBottomButtons>
