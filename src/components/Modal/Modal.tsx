@@ -43,19 +43,11 @@ export const Modal = () => {
   return (
     <StyledModalContainer>
       <StyledModalCard>
-<<<<<<< HEAD
-        <button className="close-button"  onClick={setShowModal(false)}>
-          <MdClose />
-        </button>
-        <main>
-           {loading ? (
-=======
         <button className="close-button" onClick={setShowModal(false)}>
           <MdClose />
         </button>
         <main>
           {loading ? (
->>>>>>> feat/modalinfo
             <div className="loader-container">
               <BiLoaderAlt className="loader-img" />
             </div>
@@ -79,11 +71,7 @@ export const Modal = () => {
           <button onClick={() => prevPost()} disabled={isPrevPageDisabled}>
             <HiOutlineArrowNarrowLeft />
           </button>
-<<<<<<< HEAD
-          <button onClick={() => prevPost()} disabled={isPrevPageDisabled}>
-=======
           <button onClick={() => nextPost()} disabled={isNextPageDisabled}>
->>>>>>> feat/modalinfo
             <HiOutlineArrowNarrowRight />
           </button>
         </StyledBottomButtons>

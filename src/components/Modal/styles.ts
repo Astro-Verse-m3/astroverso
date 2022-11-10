@@ -18,11 +18,7 @@ export const StyledModalCard = styled.div`
   border-radius: 20px;
   background-color: rgb(25, 24, 49, 0.8);
   backdrop-filter: blur(25px);
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> feat/modalinfo
   .close-button {
     background-color: #d0cedd;
     color: #000;
@@ -49,8 +45,8 @@ export const StyledModalCard = styled.div`
     display: flex;
     align-items: center;
   }
-  
-.loader-container {
+
+  .loader-container {
     background-color: transparent;
     width: 100vw;
     height: 100vh;
@@ -132,23 +128,13 @@ export const StyledCardName = styled.div`
   }
 `;
 
-<<<<<<< HEAD
-=======
 export const StyledCardContent = styled.div`
   width: 50%;
   height: 15rem;
   padding: 0 10px;
   overflow: auto;
   font-family: 'Nunito', sans-serif;
->>>>>>> feat/modalinfo
 
- export const StyledCardContent = styled.div` 
-  width: 50%;
-  height: 15rem;
-  padding: 0 10px;
-  overflow: auto;
-  font-family: 'Nunito', sans-serif;
-  
   h3 {
     font-weight: 700;
     font-size: 18px;
