@@ -1,4 +1,5 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { ApiRequests } from '../services/ApiRequest';
 import { iChildren } from './typeContext';
 
@@ -29,6 +30,8 @@ interface iPlanetsContextProps {
   starPosts: iStarPosts[] | null;
   setStarPosts: Function;
   getStarPosts: () => void;
+  category: string | null;
+  astroName: string | null;
 }
 
 export const PostsContext = createContext({} as iPlanetsContextProps);
@@ -36,8 +39,17 @@ export const PostsContext = createContext({} as iPlanetsContextProps);
 export const PostsProvider = ({ children }: iChildren) => {
   const [planetPosts, setPlanetPosts] = useState<iPlanetsPosts[] | null>([]);
   const [starPosts, setStarPosts] = useState<iStarPosts[] | null>([]);
-  const [loading, setLoading] = useState(true);
-  const [showModal, setShowModal] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [showModal, setShowModal] = useState<boolean>(true);
+  const [category, setCategory] = useState<string | null>('');
+  const [astroName, setAstroName] = useState<string | null>('');
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const formatedLocation = location.hash.substring(1);
+    setCategory(formatedLocation);
+  }, [location]);
 
   const postsById = async (id: number) => {
     setLoading(true);
@@ -45,6 +57,7 @@ export const PostsProvider = ({ children }: iChildren) => {
     try {
       const response = await ApiRequests.get(`posts/?planetId=${id}`);
       setPlanetPosts(response.data);
+      setAstroName(response.data[0].planetName);
     } catch (error) {
       console.log(error);
     }
@@ -56,8 +69,9 @@ export const PostsProvider = ({ children }: iChildren) => {
     setLoading(true);
 
     try {
-      const response = await ApiRequests.get('?category=estrelas');
+      const response = await ApiRequests.get('posts/?category=estrelas');
       setStarPosts(response.data);
+      setAstroName(response.data[0].starName);
     } catch (error) {
       console.log(error);
     }
@@ -78,6 +92,8 @@ export const PostsProvider = ({ children }: iChildren) => {
         starPosts,
         setStarPosts,
         getStarPosts,
+        category,
+        astroName,
       }}
     >
       {children}

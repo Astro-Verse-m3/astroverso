@@ -17,12 +17,19 @@ import { BiLoaderAlt } from 'react-icons/bi';
 import { useContext, useEffect, useState } from 'react';
 
 export const Modal = () => {
-  const { postsById, loading, planetPosts, setShowModal } =
-    useContext(PostsContext);
-  const [page, setPage] = useState(0);
-  const [isNextPageDisabled, setIsNextPageDisabled] = useState(false);
-  const [isPrevPageDisabled, setIsPrevPageDisabled] = useState(true);
-  // const [astroName, setAstroName] = useState('')
+  const {
+    postsById,
+    loading,
+    planetPosts,
+    setShowModal,
+    category,
+    getStarPosts,
+    starPosts,
+    astroName,
+  } = useContext(PostsContext);
+  const [page, setPage] = useState<number>(0);
+  const [isNextPageDisabled, setIsNextPageDisabled] = useState<boolean>(false);
+  const [isPrevPageDisabled, setIsPrevPageDisabled] = useState<boolean>(true);
 
   const nextPost = () => {
     return page === 4 ? setPage(4) : setPage(page + 1);
@@ -38,7 +45,11 @@ export const Modal = () => {
   }, [page]);
 
   useEffect(() => {
-    postsById(1);
+    if (category === 'estrelas') {
+      getStarPosts();
+    } else {
+      postsById(1);
+    }
   }, []);
 
   return (
@@ -55,14 +66,16 @@ export const Modal = () => {
           ) : (
             <>
               <StyledCardName>
-                <AnimatedImage
-                  src={`${planetPosts && planetPosts[0].planetName}.glb`}
-                />
-                <h2>{`${planetPosts && planetPosts[0].planetName}`}</h2>
+                <AnimatedImage src={`${astroName}.glb`} />
+                <h2>{`${astroName}`}</h2>
               </StyledCardName>
               <StyledCardContent>
                 <h3>Curiosidade:</h3>
-                <p>{planetPosts && planetPosts[page].description}</p>
+                {category === 'estrelas' ? (
+                  <p>{starPosts && starPosts[page].description}</p>
+                ) : (
+                  <p>{planetPosts && planetPosts[page].description}</p>
+                )}
               </StyledCardContent>
             </>
           )}
