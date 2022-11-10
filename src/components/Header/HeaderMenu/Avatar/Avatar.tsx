@@ -22,3 +22,5 @@ export const UserAvatar = () => {
 		</Avatar.Root>
 	);
 };
+
+//lembrar de identar
