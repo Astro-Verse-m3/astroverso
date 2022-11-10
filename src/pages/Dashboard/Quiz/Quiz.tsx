@@ -11,7 +11,7 @@ export const Quiz = () => {
   //   points,
   //   currentQuest,
   //   modalContents,
-  //   answerQuestion,
+  // answerQuestion,
   //   setCurrentQuest,
   // } = useContext(QuizModalContext);
   // const token = localStorage.getItem("@astroverso:token");
