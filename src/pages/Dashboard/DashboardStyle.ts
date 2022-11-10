@@ -1,34 +1,32 @@
 import styled from "styled-components";
 
 export const QuizMain = styled.main`
-  width: 100%;
+  margin: auto 80px;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 30px;
 
-  position: relative;
-  top: -10%;
+  .CardContents {
+    width: 100%;
 
-  .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 10%;
     flex-direction: row;
-    gap: 30px;
   }
 `;
 
 export const QuizCard = styled.section`
-  width: 300px;
+  width: 25%;
   height: 400px;
 
-  background-color: var(--color-primary-darker);
+  background-color: rgba(25, 24, 49, 0.8);
 
-  border-radius: 4px;
+  border-radius: 8px;
 
-  padding: 0.5rem;
+  padding: 1rem;
 
   display: flex;
   flex-direction: column;
@@ -36,6 +34,9 @@ export const QuizCard = styled.section`
   justify-content: space-between;
 
   img {
-    width: 180px;
+    width: 60%;
+  }
+
+  @media (max-width: 768px) {
   }
 `;

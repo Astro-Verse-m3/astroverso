@@ -1,10 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 
-import { useContext } from "react";
-import { IoPlanetSharp } from "react-icons/io5";
-import Card from "../../components/Card/Card";
 import HeaderMenu from "../../components/Header/HeaderMenu/HeaderMenu";
-import { QuizModalContext } from "../../contexts/QuizModalContext";
+
 import { StyledButton } from "../../styles/button";
 import { StyledTitle } from "../../styles/typography";
 
@@ -12,26 +9,27 @@ import { StyledHomeContainer } from "../Home/style";
 import { QuizMain, QuizCard } from "./DashboardStyle";
 import solzinho from "../../assets/solzinho.png";
 import sun from "../../assets/sun.png";
+import QuizModal from "./QuizModal";
+import { QuizModalContext } from "../../contexts/QuizModalContext";
 
 export const Dashboard = () => {
-  const { showModal, setShowModal, setModalContents, showPoints, points } =
+  const { showModal, setShowModal, setModalContents } =
     useContext(QuizModalContext);
-
   return (
     <StyledHomeContainer className="temp">
       <HeaderMenu />
       <QuizMain>
-        <StyledTitle tag="h2" color="two" fontSize="two" className="title">
-          Escolha seu quiz
+        <StyledTitle tag="h2" color="two" fontSize="two">
+          Escolha um de nossos quizzes
         </StyledTitle>
-        <section className="container">
+        <section className="CardContents">
           <QuizCard>
             <img
               src="https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png"
               alt="Planeta"
             />
 
-            <StyledTitle tag="p" color="two" fontSize="four">
+            <StyledTitle tag="p" color="two" fontSize="four" align="two">
               Teste seus conhecimentos sobre Planetas
             </StyledTitle>
             <StyledButton
@@ -48,7 +46,7 @@ export const Dashboard = () => {
           <QuizCard>
             <img src={sun} alt="Estrelas" />
 
-            <StyledTitle tag="p" color="two" fontSize="four">
+            <StyledTitle tag="p" color="two" fontSize="four" align="two">
               Teste seus conhecimentos sobre Estrelas
             </StyledTitle>
             <StyledButton
@@ -56,7 +54,7 @@ export const Dashboard = () => {
               type="button"
               onClick={() => {
                 setShowModal(!showModal);
-                setModalContents("planetas");
+                setModalContents("estrelas");
               }}
             >
               Faça O Quiz
@@ -65,7 +63,7 @@ export const Dashboard = () => {
           <QuizCard>
             <img src={solzinho} alt="Geral" />
 
-            <StyledTitle tag="p" color="two" fontSize="four">
+            <StyledTitle tag="p" color="two" fontSize="four" align="two">
               Teste seus conhecimentos Gerais
             </StyledTitle>
             <StyledButton
@@ -73,7 +71,7 @@ export const Dashboard = () => {
               type="button"
               onClick={() => {
                 setShowModal(!showModal);
-                setModalContents("planetas");
+                setModalContents("todos");
               }}
             >
               Faça O Quiz
@@ -81,6 +79,8 @@ export const Dashboard = () => {
           </QuizCard>
         </section>
       </QuizMain>
+
+      {showModal ? <QuizModal /> : false}
     </StyledHomeContainer>
   );
 };

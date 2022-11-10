@@ -62,9 +62,10 @@ export interface iQuizModalInterface {
 }
 
 export interface iContextInterface {
-  myQuiz: iMyQuiz | null;
-  setMyQuiz: React.Dispatch<React.SetStateAction<iMyQuiz | null>>;
-
+  myQuiz: iMyQuests[] | null;
+  setMyQuiz: React.Dispatch<React.SetStateAction<iMyQuests[] | null>>;
+  limitQuest: number;
+  setLimitQuest: React.Dispatch<React.SetStateAction<number>>;
   answerSelected: null | iAnswer;
   setAnswerSelected: React.Dispatch<React.SetStateAction<null | iAnswer>>;
 }
@@ -77,10 +78,6 @@ export interface iMyQuests {
   id: number;
   title: string;
   options: iMyOptions[];
-}
-
-export interface iMyQuiz {
-  questions: iMyQuests[];
 }
 
 export interface iAnswer {

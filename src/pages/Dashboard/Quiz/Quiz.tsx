@@ -1,23 +1,27 @@
-import React, { useContext, useEffect } from 'react';
-import { QuizContext } from '../../../contexts/QuizContext';
-import { QuizModalContext } from '../../../contexts/QuizModalContext';
+import React, { useContext, useEffect, useMemo } from "react";
+import { QuizContext } from "../../../contexts/QuizContext";
+import { QuizModalContext } from "../../../contexts/QuizModalContext";
 
-import HeaderMenu from '../../../components/Header/HeaderMenu/HeaderMenu';
-import {
-  StyledHomeContainer,
-  FundoFixo,
-  DivQuiz,
-  CloseButton,
-  Option,
-  Proximo,
-} from './stylesQuiz';
-import { ApiRequests } from '../../../services/ApiRequest';
+import { ApiRequests } from "../../../services/ApiRequest";
+import { iMyQuests } from "../../../contexts/typeContext";
+import produce from "immer";
+import { DivQuiz, Option, Proximo } from "./stylesQuiz";
+import { StyledButton } from "../../../styles/button";
+import toast from "react-hot-toast";
+import { StyledTitle } from "../../../styles/typography";
 
 // O CONTEUDO DESTA PAGINA  DEVE SER ATRIBUIDO AO CONTEUDO DE DENTRO DO MODAL
 
 export const Quiz = () => {
-  const { myQuiz, setMyQuiz, answerSelected, setAnswerSelected } =
-    useContext(QuizContext);
+  const {
+    myQuiz,
+    setMyQuiz,
+    answerSelected,
+    setAnswerSelected,
+    limitQuest,
+    setLimitQuest,
+  } = useContext(QuizContext);
+
   const {
     points,
     currentQuest,
@@ -25,16 +29,14 @@ export const Quiz = () => {
     answerQuestion,
     setCurrentQuest,
   } = useContext(QuizModalContext);
-  const token = localStorage.getItem('@astroverso:token');
+
+  const token = localStorage.getItem("@astroverso:token");
+
   useEffect(() => {
     (async () => {
       try {
-        if (modalContents === 'todos') {
-          const response = await ApiRequests.get(`/quiz`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
+        if (modalContents === "todos") {
+          const response = await ApiRequests.get(`/quiz`);
           const planetsQuest = response.data[0].questions;
           const starQuest = response.data[1].questions;
           setMyQuiz(planetsQuest.concat(starQuest));
@@ -54,89 +56,161 @@ export const Quiz = () => {
       }
     })();
   }, []);
-  // const quests = useMemo(
-  //   () =>
-  //     produce(myQuiz, (draft: iMyQuests[] | null) => {
-  //       if (draft) {
-  //         let newChosenQuests = [] as iMyQuests[];
-  //         let numberQuests = 10;
-  //         if (modalContents === 'estrela') {
-  //           numberQuests = 5;
-  //         }
-  //         for (let i = 0; i < numberQuests; i++) {
-  //           let chosen = Math.floor(Math.random() * draft.length);
-  //           newChosenQuests.push(draft[chosen]);
-  //           draft = draft.filter((elem, i) => i !== chosen);
-  //         }
-  //         return newChosenQuests;
-  //       } else {
-  //         return null;
-  //       }
-  //     }),
-  //   [myQuiz]
-  // );
+
+  const quests = useMemo(
+    () =>
+      produce(myQuiz, (draft: iMyQuests[] | null) => {
+        if (draft) {
+          let newChosenQuests = [] as iMyQuests[];
+          let numberQuests = 10;
+          if (modalContents === "estrelas") {
+            numberQuests = 5;
+          }
+          for (let i = 0; i < numberQuests; i++) {
+            let chosen = Math.floor(Math.random() * draft.length);
+            newChosenQuests.push(draft[chosen]);
+            draft = draft.filter((elem, i) => i !== chosen);
+          }
+          return newChosenQuests;
+        } else {
+          return null;
+        }
+      }),
+    [myQuiz]
+  );
+
+  if (modalContents === "estrelas") {
+    setLimitQuest(5);
+  } else {
+    setLimitQuest(10);
+  }
+
+  const id = localStorage.getItem("@astroverso:id");
+
+  const sendPoints = (Points: number) => {
+    try {
+      ApiRequests.patch(`users/${id}`, {
+        score: Points,
+      });
+    } catch (error) {
+      toast.error("Algo deu errado");
+    }
+  };
+
   return (
     <>
-      <StyledHomeContainer>
-        {/* <HeaderMenu />
-        {quests && (
-          <>
-            <FundoFixo>
-              <DivQuiz>
-                <CloseButton>x</CloseButton>
-                <h3 className="question">{quests[currentQuest]?.title}</h3>
-
-                <div className="options">
-                  {quests[currentQuest]?.options?.map(
-                    ({ answer, point }, i) => (
-                      <Option
-                        key={i}
-                        disabled={answerSelected ? true : false}
-                        type="button"
-                        onClick={() => {
-                          setAnswerSelected({ point });
-                        }}
-                        className={answerSelected && point > 0 ? 'correct' : ''}
-                      >
-                        {answer}
-                      </Option>
-                    )
+      {quests && (
+        <>
+          <StyledTitle
+            tag="p"
+            color="two"
+            fontSize="four"
+            className="question"
+            align="two"
+          >
+            {quests[currentQuest]?.title}
+          </StyledTitle>
+          <div className="options">
+            {quests[currentQuest]?.options?.map(({ answer, point }, i) => (
+              <Option
+                key={i}
+                disabled={answerSelected ? true : false}
+                type="button"
+                onClick={() => {
+                  setAnswerSelected({ point });
+                }}
+                className={answerSelected && point > 0 ? "correct" : ""}
+              >
+                {answer}
+              </Option>
+            ))}
+          </div>
+          {answerSelected && (
+            <Proximo
+              type="button"
+              onClick={() => {
+                answerQuestion(answerSelected.point);
+                setAnswerSelected(null);
+                setCurrentQuest(currentQuest + 1);
+              }}
+            >
+              Próximo
+            </Proximo>
+          )}
+        </>
+      )}
+      {currentQuest >= limitQuest ? (
+        <DivQuiz>
+          <img
+            src={require("../../../assets/premio.png")}
+            alt="Quiz Finalizado"
+          />
+          <StyledTitle tag="p" color="two" fontSize="four" align="two">
+            Parabéns, você finalizou o quiz!
+          </StyledTitle>
+          {points / 2 !== limitQuest ? (
+            <>
+              {points === 0 ? (
+                <StyledTitle
+                  tag="p"
+                  color="two"
+                  fontSize="four"
+                  className="question"
+                  align="two"
+                >
+                  Que pena você errou todas as perguntas das {limitQuest}
+                </StyledTitle>
+              ) : (
+                <>
+                  {points / 2 <= 3 ? (
+                    <StyledTitle
+                      tag="p"
+                      color="two"
+                      fontSize="four"
+                      className="question"
+                      align="two"
+                    >
+                      É bom dar uma estudada!! Você acertou apenas {points / 2}/
+                      {limitQuest === 10 ? <>10</> : <>5</>} perguntas
+                    </StyledTitle>
+                  ) : (
+                    <StyledTitle
+                      tag="p"
+                      color="two"
+                      fontSize="four"
+                      className="question"
+                      align="two"
+                    >
+                      Você acertou {points / 2}/
+                      {limitQuest === 10 ? <>10</> : <>5</>} perguntas
+                    </StyledTitle>
                   )}
-                </div> */}
-
-        {/* {answerSelected && (
-                  <Proximo
-                    type="button"
-                    onClick={() => {
-                      answerQuestion(answerSelected.point);
-                      setAnswerSelected(null);
-                      setCurrentQuest(currentQuest + 1);
-                    }}
-                  >
-                    Próximo
-                  </Proximo>
-                )}
-              </DivQuiz>
-            </FundoFixo>
-          </>
-        )}
-
-        {currentQuest >= 10 ? (
-          <FundoFixo>
-            <DivQuiz>
-              <CloseButton>x</CloseButton>
-              <img
-                src={require('../../../assets/premio.png')}
-                alt="Quiz Finalizado"
-              />
-              <h3 className="question">Parabéns, você finalizou o quiz!</h3>
-              <h3 className="question">Sua pontuação foi {points / 2}/10</h3>
-            </DivQuiz>
-          </FundoFixo> */}
-        {/* ) : (
-          false
-        )} */}
-      </StyledHomeContainer>
+                </>
+              )}
+            </>
+          ) : (
+            <StyledTitle
+              tag="p"
+              color="two"
+              fontSize="four"
+              className="question"
+              align="two"
+            >
+              Nossa que incrivel!! Você acertou todas as perguntas
+            </StyledTitle>
+          )}
+          <StyledButton
+            margin="one"
+            onClick={() => {
+              sendPoints(points);
+            }}
+          >
+            Finalizar Quiz
+          </StyledButton>
+        </DivQuiz>
+      ) : (
+        false
+      )}
     </>
   );
 };
