@@ -11,21 +11,21 @@ import { Login } from "../pages/Login/Login";
 import { Register } from "../pages/Register/Register";
 
 export const MainRoutes = () => {
-	return (
-		<AnimatePresence>
-			<Routes>
-				<Route path="/">
-					<Route index element={<Home />} />
-					<Route path=":category" element={<Home />} />
-					<Route path="login" element={<Login />} />
-					<Route path="register" element={<Register />} />
-					<Route path="extra" element={<Extras />} />
-					{/* <Route element={<ProtectRoutes />}>
+  return (
+    <AnimatePresence>
+      <Routes>
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path=":category" element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="extra" element={<Extras />} />
+          <Route element={<ProtectRoutes />}>
             <Route path="dashboard" element={<Dashboard />} />
-          </Route> */}
-				</Route>
-				<Route path="*" element={<NotFound />} />
-			</Routes>
-		</AnimatePresence>
-	);
+          </Route>
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </AnimatePresence>
+  );
 };

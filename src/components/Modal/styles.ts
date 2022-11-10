@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledModalContainer = styled.div`
   width: 100vw;
@@ -113,7 +113,7 @@ export const StyledCardName = styled.div`
 
   h2 {
     font-size: 40px;
-    font-family: 'Righteous', cursive;
+    font-family: "Righteous", cursive;
     font-weight: 800;
   }
 
@@ -135,7 +135,7 @@ export const StyledCardContent = styled.div`
   height: 15rem;
   padding: 0 10px;
   overflow: auto;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 
   h3 {
     font-weight: 700;
