@@ -1,9 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledModalContainer = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
+  z-index: 99999999;
   background-color: transparent;
   display: flex;
   align-items: center;
@@ -11,12 +12,14 @@ export const StyledModalContainer = styled.div`
 `;
 
 export const StyledModalCard = styled.div`
-  backdrop-filter: blur(25px);
   height: 30rem;
   width: 46%;
-  border-radius: 20px;
   position: relative;
   padding: 3rem 2rem;
+  border-radius: 20px;
+  background-color: rgb(25, 24, 49, 0.8);
+  backdrop-filter: blur(25px);
+  color: #fff;
 
   .close-button {
     background-color: #d0cedd;
@@ -43,6 +46,37 @@ export const StyledModalCard = styled.div`
   main {
     display: flex;
     align-items: center;
+  }
+
+  .loader-container {
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .loader-img {
+    animation: spin 2s infinite linear;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .loader-container {
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loader-img {
+    animation: spin 2s infinite linear;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 2rem;
   }
 
   @media screen and (max-width: 1172px) {
@@ -79,7 +113,7 @@ export const StyledCardName = styled.div`
 
   h2 {
     font-size: 40px;
-    font-family: 'Righteous', cursive;
+    font-family: "Righteous", cursive;
     font-weight: 800;
   }
 
@@ -98,9 +132,10 @@ export const StyledCardName = styled.div`
 
 export const StyledCardContent = styled.div`
   width: 50%;
-  font-family: 'Nunito', sans-serif;
   height: 15rem;
+  padding: 0 10px;
   overflow: auto;
+  font-family: "Nunito", sans-serif;
 
   h3 {
     font-weight: 700;

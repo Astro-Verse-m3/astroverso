@@ -1,11 +1,11 @@
 import { iUserLogin } from "../pages/Login/typeLogin";
 import { iUserRegister } from "../pages/Register/typeRegister";
-
+import { Location, Params } from "react-router-dom";
 export interface iChildren {
   children: React.ReactNode;
 }
 
-export interface iFavoritesPosts {
+export interface iPlanetsPosts {
   id: number;
   category: string;
   planetName: string;
@@ -13,12 +13,19 @@ export interface iFavoritesPosts {
   description: string;
 }
 
+export interface iStarsPosts {
+  id: number;
+  category: string;
+  startName: string;
+  startID: number;
+  description: string;
+}
 export interface iUser {
   name: string;
   email: string;
   id: number;
   score?: number;
-  favoritesPosts?: iFavoritesPosts[] | [];
+  favoritesPosts?: iPlanetsPosts[] | iStarsPosts[] | [];
 }
 
 export interface iUserContextProps {
@@ -29,12 +36,13 @@ export interface iUserContextProps {
   windowSize: {
     innerWidth: number;
   };
+  userLogout: () => void;
 }
 
 export interface iAstro {
   id: number;
   name: string;
-  image?: string;
+  image: string;
 }
 
 export interface iQuizModalInterface {
@@ -54,9 +62,10 @@ export interface iQuizModalInterface {
 }
 
 export interface iContextInterface {
-  myQuiz: iMyQuiz | null;
-  setMyQuiz: React.Dispatch<React.SetStateAction<iMyQuiz | null>>;
-
+  myQuiz: iMyQuests[] | null;
+  setMyQuiz: React.Dispatch<React.SetStateAction<iMyQuests[] | null>>;
+  limitQuest: number;
+  setLimitQuest: React.Dispatch<React.SetStateAction<number>>;
   answerSelected: null | iAnswer;
   setAnswerSelected: React.Dispatch<React.SetStateAction<null | iAnswer>>;
 }
@@ -71,14 +80,15 @@ export interface iMyQuests {
   options: iMyOptions[];
 }
 
-export interface iMyQuiz {
-  questions: iMyQuests[];
-}
-
 export interface iAnswer {
   point: number;
 }
 
 export interface iProps {
   children: React.ReactNode;
+}
+
+export interface iAstrosContextProps {
+  astroList: iAstro[];
+  pathName: string;
 }

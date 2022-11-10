@@ -1,64 +1,64 @@
 import styled, { createGlobalStyle, css } from "styled-components";
 
 export const fadeInAnimation = css`
-	@keyframes appear {
-		0% {
-			transform: translateY(0%, 0%);
-			opacity: 0;
-		}
+  @keyframes appear {
+    0% {
+      transform: translateY(0%, 0%);
+      opacity: 0;
+    }
 
-		100% {
-			transform: translateY(0%, 1%);
-			opacity: 1;
-		}
-	}
+    100% {
+      transform: translateY(0%, 1%);
+      opacity: 1;
+    }
+  }
 `;
 
 export const fadeOutAnimation = css`
-	@keyframes disappear {
-		0% {
-			opacity: 1;
-			transform: translate(0%, 0%);
-		}
+  @keyframes disappear {
+    0% {
+      opacity: 1;
+      transform: translate(0%, 0%);
+    }
 
-		100% {
-			opacity: 0;
-			transform: translate(0%, 1%);
-		}
-	}
+    100% {
+      opacity: 0;
+      transform: translate(0%, 1%);
+    }
+  }
 `;
 
 /* Underline progress hover effect */
 export const underlineHoverEffect = css`
-	&:before,
-	&:after {
-		position: absolute;
-		-webkit-transition: all 0.35s ease;
-		transition: all 0.35s ease;
-	}
+  &:before,
+  &:after {
+    position: absolute;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+  }
 
-	&:before {
-		display: block;
-		height: 1px;
-		width: 0%;
-		top: 85%;
-		content: "";
-		background-color: var(--color-grey-0);
-	}
+  &:before {
+    display: block;
+    height: 1px;
+    width: 0%;
+    top: 85%;
+    content: "";
+    background-color: var(--color-grey-0);
+  }
 
-	&:after {
-		max-width: 0%;
-		overflow: hidden;
-	}
+  &:after {
+    max-width: 0%;
+    overflow: hidden;
+  }
 
-	&:hover:before {
-		opacity: 1;
-		width: 100%;
-	}
+  &:hover:before {
+    opacity: 1;
+    width: 100%;
+  }
 
-	&:hover:after {
-		max-width: 100%;
-	}
+  &:hover:after {
+    max-width: 100%;
+  }
 `;
 
 export const GlobalStyle = createGlobalStyle`
@@ -118,6 +118,10 @@ export const GlobalStyle = createGlobalStyle`
         transition: 0.3s;
     }
 
+    /* .temp{
+        height: 50vh !important;
+    } */
+
     .mobile-dropmenu-trigger{
         color: var(--color-grey-2);
         font-size: var(--height-2);
@@ -126,10 +130,6 @@ export const GlobalStyle = createGlobalStyle`
         & > svg {
             pointer-events: none;
         }
-    }
-
-    .dropdown-portal  {
-        z-index: 2 !important;
     }
     
     .dropmenu-content {
@@ -140,7 +140,7 @@ export const GlobalStyle = createGlobalStyle`
 		padding: var(--gap-4);
         padding-top: var(--gap-5);
         
-        background-color: var(--color-grey-1);
+        background-color: var(--color-grey-2);
 		border-radius: var(--radius-1);
 
         ${fadeInAnimation}
@@ -162,6 +162,14 @@ export const GlobalStyle = createGlobalStyle`
             &:hover svg {
                 color: var(--color-primary-1);
             }
+
+            .active{
+                color: var(--color-primary-1);
+
+                ${underlineHoverEffect}
+            }
+
+            
         }
         
 	}
@@ -224,8 +232,7 @@ export const GlobalStyle = createGlobalStyle`
         margin-top: -5px;
         margin-right: var(--gap-6);
         
-        fill: var(--color-grey-1);
-        /*  fill: var(--color-primary-darker); */
+        fill: var(--color-grey-2);
 
         @media screen and (min-width: 820px) {
             margin-top: -5px;
@@ -327,75 +334,75 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const StyledContainer = styled.div`
-	width: var(--width-1);
-	max-width: var(--width-1);
-	height: var(--width-1);
-	margin: 0 auto;
+  width: var(--width-1);
+  max-width: var(--width-1);
+  height: var(--width-1);
+  margin: 0 auto;
 
-	padding: var(--gap-5) var(--gap-1);
+  padding: var(--gap-5) var(--gap-1);
 
-	@media screen and (min-width: 540px) {
-		/* max-width: calc(var(--width-2) / 2.52); */
-		max-width: calc(var(--width-2) / 2.45);
-		padding: var(--gap-5) 0;
-	}
+  @media screen and (min-width: 540px) {
+    /* max-width: calc(var(--width-2) / 2.52); */
+    max-width: calc(var(--width-2) / 2.45);
+    padding: var(--gap-5) 0;
+  }
 
-	@media screen and (min-width: 768px) {
-		padding: var(--gap-5) var(--gap-1);
-		max-width: var(--width-1);
-	}
+  @media screen and (min-width: 768px) {
+    padding: var(--gap-5) var(--gap-1);
+    max-width: var(--width-1);
+  }
 
-	@media screen and (min-width: 1024px) {
-		max-width: calc(var(--width-2) / 1.25);
-	}
+  @media screen and (min-width: 1024px) {
+    max-width: calc(var(--width-2) / 1.25);
+  }
 
-	@media screen and (min-width: 1366px) {
-		max-width: var(--width-2);
-	}
+  @media screen and (min-width: 1366px) {
+    max-width: var(--width-2);
+  }
 `;
 
 export const TooltipCSS = css`
-	&:hover .tooltip-text {
-		display: block;
-		opacity: 1;
-	}
+  &:hover .tooltip-text {
+    display: block;
+    opacity: 1;
+  }
 
-	& > .tooltip-text {
-		display: none;
-		min-width: 120px;
-		background-color: var(--color-grey-3);
-		color: var(--color-grey-1);
-		text-align: center;
-		border-radius: 8px;
-		padding: 4px 0;
-		position: absolute;
-		z-index: 1;
-		bottom: 125%;
-		left: 50%;
-		margin-left: -60px;
-		opacity: 0;
-		transition: opacity 0.3s;
+  & > .tooltip-text {
+    display: none;
+    min-width: 120px;
+    background-color: var(--color-grey-3);
+    color: var(--color-grey-1);
+    text-align: center;
+    border-radius: 8px;
+    padding: 4px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
 
-		&::after {
-			content: attr(aria-label);
-			position: absolute;
-			top: 100%;
-			left: 50%;
-			margin-left: -5px;
-			border-width: 8px;
-			border-style: solid;
-			border-color: var(--color-grey-3) transparent transparent transparent;
-		}
-	}
+    &::after {
+      content: attr(aria-label);
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 8px;
+      border-style: solid;
+      border-color: var(--color-grey-3) transparent transparent transparent;
+    }
+  }
 
-	@media screen and (min-width: 1024px) {
-		& > .tooltip-text {
-			bottom: -100%;
+  @media screen and (min-width: 1024px) {
+    & > .tooltip-text {
+      bottom: -100%;
 
-			&::after {
-				top: -60%;
-				transform: rotate(180deg);
-			}
-		}
-	}
+      &::after {
+        top: -60%;
+        transform: rotate(180deg);
+      }
+    }
+  }
 `;

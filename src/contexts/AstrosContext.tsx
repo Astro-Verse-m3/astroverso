@@ -1,68 +1,44 @@
 import { useState, createContext, useEffect, useContext } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useLocation } from "react-router-dom";
+import { planetsList } from "../components/Slider";
+import { getAstroList } from "../services/getAstroList";
 
-import { iChildren } from "./typeContext";
+import { iChildren, iAstrosContextProps, iAstro } from "./typeContext";
 import { UserContext } from "./UserContext";
 
-export const AstrosContext = createContext({});
+export const AstrosContext = createContext({} as iAstrosContextProps);
 
 export const AstrosProvider = ({ children }: iChildren) => {
-	const { user } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
-	const { id } = useParams();
-	const navigate = useNavigate();
+  const [astroList, setAstroList] = useState<iAstro[] | []>(planetsList);
+  const [pathName, setPathName] = useState("planets");
+  const location = useLocation();
 
-	/*const login = async (data: iUserLogin) => {
-		try {
-			const response = await ApiRequests.post("login", data);
-			localStorage.setItem("@astroverso:token", response.data.accessToken);
-			localStorage.setItem("@astroverso:id", response.data.user.id);
-			setUser(response.data.user);
-			navigate("/dashboard");
-		} catch (error) {
-			console.log(error);
-		}
-	};
+  useEffect(() => {
+    const getAstroByCategory = async () => {
+      const category = location.pathname.slice(1, location.pathname.length);
 
-	const signUp = async (data: iUserRegister) => {
-		delete data.confirmPassword;
-		try {
-			const userData = { ...data, score: 0, favoritesPosts: [] };
-			await ApiRequests.post("register", userData);
-			navigate("/login");
-		} catch (error) {
-			console.log(error);
-		}
-	};
+      setPathName(category);
+      if (category === "planets" || category === "stars") {
+        try {
+          const data = await getAstroList(category);
 
-	useEffect(() => {
-		const token = localStorage.getItem("@astroverso:token");
-		if (!token) {
-			navigate("/login");
-		} else if (token) {
-			navigate("/dashboard");
-		}
-	}, []);
+          setAstroList(data);
+        } catch (error) {
+          console.log(error);
+          toast.error("Ops! Algo deu errado, tente mais tarde!");
+        }
+      }
+    };
 
-	const getWindowSize = () => {
-		const { innerWidth } = window;
-		return { innerWidth };
-	};
+    getAstroByCategory();
+  }, [location]);
 
-	const [windowSize, setWindowSize] = useState(getWindowSize());
-
-	useEffect(() => {
-		const handleWindowResize = () => {
-			setWindowSize(getWindowSize());
-		};
-
-		window.addEventListener("resize", handleWindowResize);
-
-		return () => {
-			window.removeEventListener("resize", handleWindowResize);
-		};
-	}, []);*/
-
-	return <AstrosContext.Provider value={{}}>{children}</AstrosContext.Provider>;
+  return (
+    <AstrosContext.Provider value={{ astroList, pathName }}>
+      {children}
+    </AstrosContext.Provider>
+  );
 };
-//user, setUser, login, signUp, windowSize
