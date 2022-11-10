@@ -1,7 +1,7 @@
-import { Toaster } from "react-hot-toast";
+import { Toaster } from 'react-hot-toast';
 import { PostsProvider } from './contexts/PostsContext';
-import { UserProvider } from "./contexts/UserContext";
-import { MainRoutes } from "./routes/Routes";
+import { UserProvider } from './contexts/UserContext';
+import { MainRoutes } from './routes/Routes';
 
 export const App = () => {
   return (
@@ -14,9 +14,9 @@ export const App = () => {
         }}
       />
       <UserProvider>
-         <PostsProvider>
-        <MainRoutes />
-       </PostsProvider>    
+        <PostsProvider>
+          <MainRoutes />
+        </PostsProvider>
       </UserProvider>
     </>
   );
