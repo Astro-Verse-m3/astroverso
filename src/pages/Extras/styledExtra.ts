@@ -153,7 +153,7 @@ export const StyledExtraUl = styled.ul`
     font-family: var(--font-family-Raleway);
     border: solid var(--color-grey-1) 1px;
     border-radius: 5px;
-    max-width: 340px;
+    max-width: 360px;
     height: 340px;
     display: flex;
     align-items: center;
@@ -188,7 +188,7 @@ export const StyledExtraUl = styled.ul`
   }
 
   li p {
-    height: 125px;
+    height: 115px;
     margin-top: 15px;
     margin-bottom: 15px;
     font-size: 12px;
@@ -242,8 +242,13 @@ export const StyledExtraUl = styled.ul`
       padding-top: 22px;
     }
 
+
+    li .productContent {
+      height: 192px;
+    }
+
     li h2 {
-      font-size: 14px;
+      font-size: 13px;
     }
 
     li .linkContent {
@@ -255,8 +260,12 @@ export const StyledExtraUl = styled.ul`
       font-size: 13px;
     }
 
+    li p{
+      font-size: 11px;
+      margin-bottom: 0px;
+    }
+
     li a {
-      margin: 10px;
       padding: 6px;
       margin-left: 50px;
     }
