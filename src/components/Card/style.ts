@@ -2,17 +2,12 @@ import styled from "styled-components";
 import { StyledContainerLogo } from "../Header/HeaderMenu/style";
 
 export const StyledCard = styled.div`
-	width: var(--width-1);
-	max-width: calc(var(--width-2) / 5);
 	height: calc(var(--width-2) / 5.5);
 	padding: var(--gap-5);
-
-	/*max-width: calc(var(--width-2) / 4.37);
-	  height: calc(var(--width-2) / 4.37);*/
+	cursor: pointer;
 
 	background-color: var(--color-primary-darker);
 	border-radius: var(--radius-2);
-	/* filter: opacity(0.9); */
 
 	display: flex;
 	flex-direction: column;
@@ -43,11 +38,8 @@ export const StyledCard = styled.div`
 `;
 
 export const StyledContainerImg = styled(StyledContainerLogo)`
-	max-width: calc(var(--height-1) * 5.38);
+	max-width: calc(var(--height-1) * 4);
 	height: calc(var(--height-1) * 3);
-
-	/*max-width: calc(var(--height-1) * 3.38);
-	height: calc(var(--height-1) * 3.8);*/
 
 	& > img {
 		object-fit: cover;

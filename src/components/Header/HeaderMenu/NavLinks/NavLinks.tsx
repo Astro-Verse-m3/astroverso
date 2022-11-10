@@ -11,12 +11,12 @@ export const NavLinks = () => {
 		<StyledMenuList>
 			<StyledMenuItem className="menu-item">
 				<IoPlanet />
-				<Link to="#planetas">Planetas</Link>
+				<Link to="/planetas">Planetas</Link>
 			</StyledMenuItem>
 
 			<StyledMenuItem className="menu-item">
 				<BsStars />
-				<Link to="#estrelas">Estrelas</Link>
+				<Link to="/estrelas">Estrelas</Link>
 			</StyledMenuItem>
 
 			<StyledMenuItem className="menu-item">

@@ -2,18 +2,25 @@ import React from "react";
 
 import Card from "../../components/Card/Card";
 import { iCarouselProps } from "./typeCarousel";
-import { Slider, Slide, iSliderProps } from "../../components/Slider";
+import { Swiper, SwiperProps as iSliderProps, SwiperSlide } from "swiper/react";
+import {
+	Navigation,
+	Pagination,
+	A11y,
+	EffectFade,
+	Keyboard,
+	Mousewheel
+} from "swiper";
+import "swiper/css";
+import "swiper/css/a11y";
+import "swiper/css/keyboard";
+import "swiper/css/mousewheel";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+import "../Slider/Slider.css";
 
-export const Carousel = ({ astroList, quizList }: iCarouselProps) => {
-	if (astroList?.length === 1 || quizList?.length === 1) {
-		return (
-			<>
-				{astroList && <Card typeCard="astroCard" astroCard={astroList[0]} />}
-				{quizList && <Card typeCard="quizCard" quizCard={quizList[0]} />}
-			</>
-		);
-	}
-
+export const Carousel = () => {
 	const settings: iSliderProps = {
 		effect: "fade",
 		mousewheel: true,
@@ -26,61 +33,84 @@ export const Carousel = ({ astroList, quizList }: iCarouselProps) => {
 		},
 		draggable: true,
 		loop: true,
-		slidesPerView: 1,
-		spaceBetween: 10
-		// breakpoints: {
-		// 	640: {
-		// 		slidesPerView: 2,
-		// 		spaceBetween: 20
-		// 	},
-		// 	768: {
-		// 		slidesPerView: 4,
-		// 		spaceBetween: 40
-		// 	},
-		// 	1024: {
-		// 		slidesPerView: 5,
-		// 		spaceBetween: 50
-		// 	}
-		// }
-	};
-
-	return (
-		<>
-			{astroList && (
-				<Slider settings={settings}>
-					{astroList.map(card => (
-						<Slide key={card.id}>
-							<Card astroCard={card} typeCard="astroCard" />
-						</Slide>
-					))}
-				</Slider>
-			)}
-
-			{quizList && (
-				<Slider settings={settings}>
-					{quizList.map(card => (
-						<Slide key={card.categoryName}>
-							<Card quizCard={card} typeCard="quizCard" />
-						</Slide>
-					))}
-				</Slider>
-			)}
-		</>
-	);
-};
-/**
- breakpoints: {
-			640: {
+		slidesPerView: 2,
+		spaceBetween: 10,
+		breakpoints: {
+			300: {
+				slidesPerView: 1,
+				spaceBetween: 10
+			},
+			768: {
 				slidesPerView: 2,
 				spaceBetween: 20
 			},
-			768: {
+			1024: {
+				slidesPerView: 3,
+				spaceBetween: 30
+			},
+			1366: {
 				slidesPerView: 4,
 				spaceBetween: 40
+			}
+		}
+	};
+
+	return <></>;
+};
+/**
+effect={"fade"}
+				loop={true}
+				mousewheel={true}
+				navigation={true}
+				draggable={true}
+				keyboard={{
+					enabled: true
+				}}
+				slidesPerView={2}
+				spaceBetween={10}
+				breakpoints={{
+					768: {
+						slidesPerView: 2,
+						spaceBetween: 20
+					},
+					1024: {
+						slidesPerView: 3,
+						spaceBetween: 30
+					},
+					1366: {
+						slidesPerView: 4,
+						spaceBetween: 40
+					}
+				}}
+				pagination={{
+					clickable: true
+				}}
+				modules={[
+					Navigation,
+					Pagination,
+					A11y,
+					EffectFade,
+					Keyboard,
+					Mousewheel
+				]} 
+
+
+ breakpoints: {
+			300: {
+				slidesPerView: 1,
+				spaceBetween: 10
+			},
+			768: {
+				slidesPerView: 2,
+				spaceBetween: 20
 			},
 			1024: {
-				slidesPerView: 5,
-				spaceBetween: 50
+				slidesPerView: 3,
+				spaceBetween: 30
+			},
+			1366: {
+				slidesPerView: 4,
+				spaceBetween: 40
 			}
 		}
 		

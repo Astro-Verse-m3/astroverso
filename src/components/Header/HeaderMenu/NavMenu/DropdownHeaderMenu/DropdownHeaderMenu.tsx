@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import { StyledMenuLink as Link } from "../../style";
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
@@ -14,11 +14,13 @@ import { UserAvatar } from "../../Avatar/Avatar";
 import { StyledHeaderDropdown } from "../../style";
 import { iDropdownUserProps } from "./typeDropdowns";
 import { StyledTitle } from "../../../../../styles/typography";
+import { UserContext } from "../../../../../contexts/UserContext";
+import { useParams } from "react-router-dom";
+import { AstrosContext } from "../../../../../contexts/AstrosContext";
 
 export const DropdownHeaderMenu = ({ windowSize }: iDropdownUserProps) => {
-	const [user, setUser] = useState(true);
-
-	const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
+	const { user, userLogout } = useContext(UserContext);
+	const { getAstroByCategory } = useContext(AstrosContext);
 
 	return (
 		<DropdownMenu.Root>
@@ -34,10 +36,7 @@ export const DropdownHeaderMenu = ({ windowSize }: iDropdownUserProps) => {
 				</DropdownMenu.Trigger>
 			)}
 
-			<DropdownMenu.Portal
-				className="dropdown-portal"
-				container={document.body}
-			>
+			<DropdownMenu.Portal container={document.body}>
 				<DropdownMenu.Content
 					loop
 					className={`dropmenu-content + ${
@@ -51,7 +50,7 @@ export const DropdownHeaderMenu = ({ windowSize }: iDropdownUserProps) => {
 									<UserAvatar />
 									{user ? (
 										<StyledTitle tag="h4" fontSize="five" color="two">
-											User name
+											{user.name}
 										</StyledTitle>
 									) : (
 										<StyledTitle tag="h4" fontSize="five" color="two">
@@ -65,22 +64,26 @@ export const DropdownHeaderMenu = ({ windowSize }: iDropdownUserProps) => {
 
 							<DropdownMenu.Item className="menu-item">
 								<IoPlanet />
-								<Link to="#planetas">Planetas</Link>
+								<Link to="/planetas" onClick={() => getAstroByCategory()}>
+									Planetas
+								</Link>
 							</DropdownMenu.Item>
 
 							<DropdownMenu.Item className="menu-item">
 								<BsStars />
-								<Link to="#estrelas">Estrelas</Link>
+								<Link to="/stars" onClick={() => getAstroByCategory()}>
+									Estrelas
+								</Link>
 							</DropdownMenu.Item>
 
 							<DropdownMenu.Item className="menu-item">
 								<MdQuiz />
-								<Link to="quiz">Quiz</Link>
+								<Link to="/quiz">Quiz</Link>
 							</DropdownMenu.Item>
 
 							<DropdownMenu.Item className="menu-item">
 								<BsPatchPlusFill />
-								<Link to="extra">Extras</Link>
+								<Link to="/extra">Extras</Link>
 							</DropdownMenu.Item>
 						</>
 					)}
@@ -93,19 +96,21 @@ export const DropdownHeaderMenu = ({ windowSize }: iDropdownUserProps) => {
 						<>
 							<DropdownMenu.Item className="menu-item" key="Perfil">
 								<FaUserAstronaut />
-								<Link to="#perfil">Perfil</Link>
+								<Link to="/dashboard">Perfil</Link>
 							</DropdownMenu.Item>
 
 							<DropdownMenu.Item className="menu-item">
 								<FaSpaceShuttle />
-								<Link to="/">Sair</Link>
+								<Link to="/" onClick={() => userLogout()}>
+									Sair
+								</Link>
 							</DropdownMenu.Item>
 						</>
 					) : (
 						<>
 							<DropdownMenu.Item className="menu-item">
 								<GiSpaceShuttle />
-								<Link to="/login">Fazer login</Link>
+								<Link to="/login">Login</Link>
 							</DropdownMenu.Item>
 
 							<DropdownMenu.Item className="menu-item">
