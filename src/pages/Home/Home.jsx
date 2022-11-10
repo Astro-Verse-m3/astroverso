@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import { Footer } from '../../components/Footer/Footer';
-import { Carousel } from '../../components/Carousel/Carousel';
+import SwiperSimple from "../../components/Carousel/SwiperSimple";
 import HeaderMenu from '../../components/Header/HeaderMenu/HeaderMenu';
 
 import { StyledHomeContainer } from './style';
@@ -21,7 +21,7 @@ export const Home = () => {
           <StyledHomeContainer>
             <HeaderMenu />
             <div>
-              <Carousel astroList={planetsList} />
+              	<SwiperSimple />
             </div>
             <Footer />
           </StyledHomeContainer>

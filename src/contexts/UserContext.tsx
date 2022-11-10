@@ -11,45 +11,45 @@ import { iChildren, iUser, iUserContextProps } from "./typeContext";
 export const UserContext = createContext({} as iUserContextProps);
 
 export const UserProvider = ({ children }: iChildren) => {
-  const [user, setUser] = useState<iUser | null>(null);
+	const [user, setUser] = useState<iUser | null>(null);
 
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  const login = async (data: iUserLogin) => {
-    try {
-      const response = await ApiRequests.post("login", data);
-      localStorage.setItem("@astroverso:token", response.data.accessToken);
-      localStorage.setItem("@astroverso:id", response.data.user.id);
-      setUser(response.data.user);
-      navigate("/dashboard");
-      toast.success("Login realizado com sucesso.");
-    } catch (error) {
-      console.log(error);
-      toast.error("Email e/ou senha são inválidos");
-    }
-  };
+	const login = async (data: iUserLogin) => {
+		try {
+			const response = await ApiRequests.post("login", data);
+			localStorage.setItem("@astroverso:token", response.data.accessToken);
+			localStorage.setItem("@astroverso:id", response.data.user.id);
+			setUser(response.data.user);
+			navigate("/dashboard");
+			toast.success("Login realizado com sucesso.");
+		} catch (error) {
+			console.log(error);
+			toast.error("Email e/ou senha são inválidos");
+		}
+	};
 
-  const signUp = async (data: iUserRegister) => {
-    delete data.confirmPassword;
-    try {
-      const userData = { ...data, score: 0, favoritesPosts: [] };
-      await ApiRequests.post("register", userData);
-      navigate("/login");
-      toast.success("Cadastro realizado com sucesso.");
-    } catch (error) {
-      console.log(error);
-      toast.error("E-mail já cadastrado");
-    }
-  };
+	const signUp = async (data: iUserRegister) => {
+		delete data.confirmPassword;
+		try {
+			const userData = { ...data, score: 0, favoritesPosts: [] };
+			await ApiRequests.post("register", userData);
+			navigate("/login");
+			toast.success("Cadastro realizado com sucesso.");
+		} catch (error) {
+			console.log(error);
+			toast.error("E-mail já cadastrado");
+		}
+	};
 
-  useEffect(() => {
-    const token = localStorage.getItem("@astroverso:token");
-    if (token) {
-      navigate("dashboard");
-    }
-  }, []);
-  
-  const getWindowSize = () => {
+	useEffect(() => {
+		const token = localStorage.getItem("@astroverso:token");
+		if (token) {
+			navigate("dashboard");
+		}
+	}, []);
+
+	const getWindowSize = () => {
 		const { innerWidth } = window;
 		return { innerWidth };
 	};
@@ -68,10 +68,18 @@ export const UserProvider = ({ children }: iChildren) => {
 		};
 	}, []);
 
+	const userLogout = () => {
+		setUser(null);
 
-  return (
-    <UserContext.Provider value={{ user, setUser, login, signUp,windowSize }}>
-      {children}
-    </UserContext.Provider>
-  );
+		localStorage.removeItem("@astroverso:token");
+		localStorage.removeItem("@astroverso:id");
+	};
+
+	return (
+		<UserContext.Provider
+			value={{ user, setUser, login, signUp, windowSize, userLogout }}
+		>
+			{children}
+		</UserContext.Provider>
+	);
 };

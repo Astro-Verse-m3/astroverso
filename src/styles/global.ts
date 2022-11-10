@@ -127,10 +127,6 @@ export const GlobalStyle = createGlobalStyle`
             pointer-events: none;
         }
     }
-
-    .dropdown-portal  {
-        z-index: 2 !important;
-    }
     
     .dropmenu-content {
         width: calc(var(--height-1) * 4);
@@ -140,7 +136,7 @@ export const GlobalStyle = createGlobalStyle`
 		padding: var(--gap-4);
         padding-top: var(--gap-5);
         
-        background-color: var(--color-grey-1);
+        background-color: var(--color-grey-2);
 		border-radius: var(--radius-1);
 
         ${fadeInAnimation}
@@ -162,6 +158,14 @@ export const GlobalStyle = createGlobalStyle`
             &:hover svg {
                 color: var(--color-primary-1);
             }
+
+            .active{
+                color: var(--color-primary-1);
+
+                ${underlineHoverEffect}
+            }
+
+            
         }
         
 	}
@@ -224,8 +228,7 @@ export const GlobalStyle = createGlobalStyle`
         margin-top: -5px;
         margin-right: var(--gap-6);
         
-        fill: var(--color-grey-1);
-        /*  fill: var(--color-primary-darker); */
+        fill: var(--color-grey-2);
 
         @media screen and (min-width: 820px) {
             margin-top: -5px;
