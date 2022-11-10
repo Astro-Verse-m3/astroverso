@@ -1,11 +1,14 @@
 import React from 'react';
+import { PostsProvider } from './contexts/PostsContext';
 import { UserProvider } from './contexts/UserContext';
 import { MainRoutes } from './routes/Routes';
 
 export const App = () => {
   return (
     <UserProvider>
-      <MainRoutes />
+      <PostsProvider>
+        <MainRoutes />
+      </PostsProvider>
     </UserProvider>
   );
 };
