@@ -22,6 +22,7 @@ export const Modal = () => {
   const [page, setPage] = useState(0);
   const [isNextPageDisabled, setIsNextPageDisabled] = useState(false);
   const [isPrevPageDisabled, setIsPrevPageDisabled] = useState(true);
+  // const [astroName, setAstroName] = useState('')
 
   const nextPost = () => {
     return page === 4 ? setPage(4) : setPage(page + 1);
