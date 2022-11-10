@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import Card from "../Card/Card";
@@ -19,6 +19,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import "../Slider/Slider.css";
+import { PostsContext } from "../../contexts/PostsContext";
+import { Modal } from "../Modal/Modal";
 
 const SwiperSimple = () => {
   const { astroList } = useContext(AstrosContext);

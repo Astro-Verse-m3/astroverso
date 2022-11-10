@@ -1,10 +1,13 @@
 import React from "react";
-import { StyledModalContainer } from "../../../components/Modal/styles";
+import {
+  StyledModalCard,
+  StyledModalContainer,
+} from "../../../components/Modal/styles";
 
 const QuizModal = () => {
   return (
     <StyledModalContainer>
-      <StyledModalContext></StyledModalContext>
+      <StyledModalCard></StyledModalCard>
     </StyledModalContainer>
   );
 };
