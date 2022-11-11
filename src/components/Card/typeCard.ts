@@ -11,4 +11,5 @@ export interface iCardProps {
   quizCard?: iQuizCardProps;
   typeCard: string;
   logic?: () => void;
+  onClick?: () => void;
 }

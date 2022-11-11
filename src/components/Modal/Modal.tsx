@@ -21,11 +21,12 @@ export const Modal = () => {
     postsById,
     loading,
     planetPosts,
-    setShowModal,
+    setShowModalPost,
     category,
     getStarPosts,
     starPosts,
     astroName,
+    currentPlanet,
   } = useContext(PostsContext);
   const [page, setPage] = useState<number>(0);
   const [isNextPageDisabled, setIsNextPageDisabled] = useState<boolean>(false);
@@ -48,14 +49,17 @@ export const Modal = () => {
     if (category === "estrelas") {
       getStarPosts();
     } else {
-      postsById(1);
+      postsById(currentPlanet);
     }
   }, []);
 
   return (
     <StyledModalContainer>
       <StyledModalCard>
-        <button className="close-button" onClick={() => setShowModal}>
+        <button
+          className="close-button"
+          onClick={() => setShowModalPost(false)}
+        >
           <MdClose />
         </button>
         <main>

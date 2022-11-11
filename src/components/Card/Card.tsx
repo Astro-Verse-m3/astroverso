@@ -1,17 +1,20 @@
-import React, { useContext } from "react";
+import React from "react";
 import { StyledTitle } from "../../styles/typography";
 
 import { iCardProps } from "./typeCard";
 import { StyledButtonCard, StyledCard, StyledContainerImg } from "./style";
-import { PostsContext } from "../../contexts/PostsContext";
 
-const Card = ({ astroCard, quizCard, typeCard, logic }: iCardProps) => {
-  const { setShowModal } = useContext(PostsContext);
-
+const Card = ({
+  astroCard,
+  quizCard,
+  typeCard,
+  logic,
+  onClick,
+}: iCardProps) => {
   return (
     <>
-      <StyledCard id={`${astroCard?.id}`}>
-        <StyledContainerImg onClick={() => setShowModal(true)}>
+      <StyledCard id={`${astroCard?.id}`} onClick={onClick}>
+        <StyledContainerImg>
           <img
             src={
               typeCard === "astroCard"

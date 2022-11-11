@@ -24,6 +24,7 @@ import { Modal } from "../Modal/Modal";
 
 const SwiperSimple = () => {
   const { astroList } = useContext(AstrosContext);
+  const { setShowModalPost, setCurrentPlanet } = useContext(PostsContext);
 
   return (
     <div className="slider-container">
@@ -57,7 +58,15 @@ const SwiperSimple = () => {
       >
         {astroList.map((astro) => (
           <SwiperSlide key={astro.id}>
-            <Card typeCard="astroCard" astroCard={astro} />
+            <Card
+              typeCard="astroCard"
+              astroCard={astro}
+              onClick={() => {
+                console.log(astro.id);
+                setShowModalPost(true);
+                setCurrentPlanet(astro.id);
+              }}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
