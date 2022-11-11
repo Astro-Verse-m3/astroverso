@@ -1,19 +1,19 @@
-import * as React from 'react';
+import * as React from "react";
 
 export interface iModelViewer
   extends Omit<
     React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>,
-    'ref'
+    "ref"
   > {
   src: string;
-  'ios-src'?: string;
-  'camera-controls'?: boolean;
-  'disable-zoom'?: boolean;
-  'auto-rotate'?: boolean;
+  "ios-src"?: string;
+  "camera-controls"?: boolean;
+  "disable-zoom"?: boolean;
+  "auto-rotate"?: boolean;
   ar?: boolean;
   autoplay?: boolean;
-  'shadow-intensity'?: number | string;
-  'ar-scale'?: number | string;
+  "shadow-intensity"?: number | string;
+  "ar-scale"?: number | string;
   style?: React.CSSProperties;
   ref?: React.MutableRefObject<iModelViewer>;
   toBlob?: ({ idealAspect }: { idealAspect: boolean }) => Promise<Blob>;
@@ -23,7 +23,7 @@ export interface iModelViewer
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      'model-viewer': iModelViewer;
+      "model-viewer": iModelViewer;
     }
   }
 }
@@ -31,11 +31,12 @@ declare global {
 export const AnimatedImage = ({ src }: iModelViewer) => {
   return (
     <model-viewer
+      className="animated-image"
       src={src}
       ar
       ios-src=""
       auto-rotate
-      style={{ width: '15rem', height: '15rem' }}
+      style={{ width: "15rem", height: "15rem" }}
     ></model-viewer>
   );
 };

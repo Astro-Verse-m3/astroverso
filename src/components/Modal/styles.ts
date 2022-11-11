@@ -9,17 +9,31 @@ export const StyledModalContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(3px);
 `;
 
 export const StyledModalCard = styled.div`
   height: 30rem;
-  width: 46%;
+  width: 50%;
   position: relative;
   padding: 3rem 2rem;
   border-radius: 20px;
-  background-color: rgb(25, 24, 49, 0.8);
-  backdrop-filter: blur(25px);
+  background-color: rgb(25, 24, 49, 0.95);
   color: #fff;
+
+  @media (max-width: 1135px) {
+    min-width: 550px;
+  }
+
+  @media (max-width: 580px) {
+    height: 70%;
+    min-width: 85%;
+  }
+
+  @media (max-width: 360px) {
+    height: 75%;
+    top: 30px;
+  }
 
   .close-button {
     background-color: #d0cedd;
@@ -34,6 +48,11 @@ export const StyledModalCard = styled.div`
     align-items: center;
     justify-content: center;
 
+    @media (max-width: 280px) {
+      top: -60px;
+      z-index: 10;
+    }
+
     &:hover {
       color: #4200ff;
     }
@@ -46,6 +65,15 @@ export const StyledModalCard = styled.div`
   main {
     display: flex;
     align-items: center;
+
+    @media (max-width: 580px) {
+      flex-direction: column;
+      transform: translateY(-140px);
+    }
+
+    @media (max-width: 360px) {
+      transform: translateY(-125px);
+    }
   }
 
   .loader-container {
@@ -86,29 +114,6 @@ export const StyledModalCard = styled.div`
       transform: rotate(360deg);
     }
   }
-
-  @media screen and (max-width: 1172px) {
-    height: 70%;
-    width: 50%;
-
-    main {
-      flex-direction: column;
-      transform: translateY(-161px);
-    }
-  }
-
-  @media screen and (max-width: 730px) {
-    width: 60%;
-  }
-
-  @media screen and (max-width: 540px) {
-    width: 80%;
-
-    button {
-      right: -7px !important;
-      top: -10px !important ;
-    }
-  }
 `;
 
 export const StyledCardName = styled.div`
@@ -119,31 +124,37 @@ export const StyledCardName = styled.div`
   justify-content: center;
   gap: 2rem;
 
+  .animated-image {
+    width: 5rem;
+  }
+
+  @media (max-width: 580px) {
+    gap: 0;
+  }
+
   h2 {
     font-size: 40px;
     font-family: "Righteous", cursive;
     font-weight: 800;
-  }
-
-  @media screen and (max-width: 1172px) {
-    margin-bottom: 2.5rem;
-  }
-
-  @media screen and (max-width: 540px) {
-    margin-bottom: 1.5rem;
-
-    h2 {
-      font-size: 35px;
-    }
   }
 `;
 
 export const StyledCardContent = styled.div`
   width: 50%;
   height: 15rem;
-  padding: 0 10px;
   overflow: auto;
+  text-align: justify;
   font-family: "Nunito", sans-serif;
+
+  @media (max-width: 580px) {
+    width: 100%;
+    height: 11rem;
+    margin-top: 15px;
+  }
+
+  @media (max-width: 360px) {
+    height: 12rem;
+  }
 
   h3 {
     font-weight: 700;
@@ -157,28 +168,6 @@ export const StyledCardContent = styled.div`
     line-height: 26px;
     margin-top: 10px;
   }
-
-  @media screen and (max-width: 1172px) {
-    width: 100%;
-
-    h3 {
-      font-size: 25px;
-    }
-
-    p {
-      font-size: 21px;
-    }
-  }
-
-  @media screen and (max-width: 730px) {
-    h3 {
-      font-size: 20px;
-    }
-
-    p {
-      font-size: 16px;
-    }
-  }
 `;
 
 export const StyledBottomButtons = styled.div`
@@ -190,11 +179,19 @@ export const StyledBottomButtons = styled.div`
   right: 2rem;
   left: 2rem;
 
+  @media (max-width: 580px) {
+    bottom: 1rem;
+  }
+
   button {
     background-color: #d0cedd;
     width: 4rem;
     height: 2rem;
     border-radius: 20px;
+
+    @media (max-width: 280px) {
+      width: 20%;
+    }
 
     &:hover {
       color: #4200ff;
