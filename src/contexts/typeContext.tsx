@@ -1,6 +1,5 @@
 import { iUserLogin } from "../pages/Login/typeLogin";
 import { iUserRegister } from "../pages/Register/typeRegister";
-import { Location, Params } from "react-router-dom";
 export interface iChildren {
   children: React.ReactNode;
 }
