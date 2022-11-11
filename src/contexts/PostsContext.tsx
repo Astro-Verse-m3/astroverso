@@ -42,7 +42,7 @@ export const PostsProvider = ({ children }: iChildren) => {
   const [planetPosts, setPlanetPosts] = useState<iPlanetsPosts[] | null>([]);
   const [starPosts, setStarPosts] = useState<iStarPosts[] | null>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [showModalPost, setShowModalPost] = useState<boolean>(true);
+  const [showModalPost, setShowModalPost] = useState<boolean>(false);
   const [category, setCategory] = useState<string | null>("");
   const [astroName, setAstroName] = useState<string | null>("");
   const [currentPlanet, setCurrentPlanet] = useState(1 as number);
