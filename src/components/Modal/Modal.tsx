@@ -46,11 +46,7 @@ export const Modal = () => {
   }, [page]);
 
   useEffect(() => {
-    if (category === "estrelas") {
-      getStarPosts();
-    } else {
-      postsById(currentPlanet);
-    }
+    postsById(currentPlanet);
   }, []);
 
   return (
@@ -75,11 +71,7 @@ export const Modal = () => {
               </StyledCardName>
               <StyledCardContent>
                 <h3>Curiosidade:</h3>
-                {category === "estrelas" ? (
-                  <p>{starPosts && starPosts[page].description}</p>
-                ) : (
-                  <p>{planetPosts && planetPosts[page].description}</p>
-                )}
+                <p>{planetPosts && planetPosts[page].description}</p>
               </StyledCardContent>
             </>
           )}
