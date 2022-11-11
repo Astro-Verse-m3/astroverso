@@ -24,7 +24,7 @@ export const DivQuiz = styled.div`
   img {
     width: 40%;
   }
-  
+
   /* @media (max-width: 768px) {
     max-width: 100%;
     padding: 64px 24px;
@@ -44,7 +44,7 @@ export const CloseButton = styled.button`
   text-align: center;
   color: #000000;
   font-weight: bold;
-  min-width: 32px;
+  min-width: 32px;ver
   min-height: 32px;
 
   position: absolute;
