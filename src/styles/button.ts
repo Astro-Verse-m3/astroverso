@@ -52,4 +52,4 @@ export const StyledButton = styled.button<iStyledButton>`
         `;
     }
   }}
-`;
+`

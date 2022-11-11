@@ -19,67 +19,68 @@ export const Dashboard = () => {
     <StyledHomeContainer className="temp">
       <HeaderMenu />
       <QuizMain>
-        <StyledTitle tag="h2" color="two" fontSize="two">
-          Escolha um de nossos quizzes
-        </StyledTitle>
-        <section className="CardContents">
-          <QuizCard>
-            <img
-              src="https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png"
-              alt="Planeta"
-            />
+        <div className="align-quiz">
+          <StyledTitle tag="h2" color="two" fontSize="two">
+            Escolha um de nossos quizzes
+          </StyledTitle>
+          <section className="CardContents">
+            <QuizCard>
+              <img
+                src="https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png"
+                alt="Planeta"
+              />
 
-            <StyledTitle tag="p" color="two" fontSize="four" align="two">
-              Teste seus conhecimentos sobre Planetas
-            </StyledTitle>
-            <StyledButton
-              margin="one"
-              type="button"
-              onClick={() => {
-                setShowModal(!showModal);
-                setModalContents("planetas");
-              }}
-            >
-              Faça O Quiz
-            </StyledButton>
-          </QuizCard>
-          <QuizCard>
-            <img src={sun} alt="Estrelas" />
+              <StyledTitle tag="p" color="two" fontSize="four" align="two">
+                Teste seus conhecimentos sobre Planetas
+              </StyledTitle>
+              <StyledButton
+                margin="one"
+                type="button"
+                onClick={() => {
+                  setShowModal(!showModal);
+                  setModalContents("planetas");
+                }}
+              >
+                Faça o quiz
+              </StyledButton>
+            </QuizCard>
+            <QuizCard>
+              <img src={sun} alt="Estrelas" />
 
-            <StyledTitle tag="p" color="two" fontSize="four" align="two">
-              Teste seus conhecimentos sobre Estrelas
-            </StyledTitle>
-            <StyledButton
-              margin="one"
-              type="button"
-              onClick={() => {
-                setShowModal(!showModal);
-                setModalContents("estrelas");
-              }}
-            >
-              Faça O Quiz
-            </StyledButton>
-          </QuizCard>
-          <QuizCard>
-            <img src={solzinho} alt="Geral" />
+              <StyledTitle tag="p" color="two" fontSize="four" align="two">
+                Teste seus conhecimentos sobre Estrelas
+              </StyledTitle>
+              <StyledButton
+                margin="one"
+                type="button"
+                onClick={() => {
+                  setShowModal(!showModal);
+                  setModalContents("estrelas");
+                }}
+              >
+                Faça o quiz
+              </StyledButton>
+            </QuizCard>
+            <QuizCard>
+              <img src={solzinho} alt="Geral" />
 
-            <StyledTitle tag="p" color="two" fontSize="four" align="two">
-              Teste seus conhecimentos Gerais
-            </StyledTitle>
-            <StyledButton
-              margin="one"
-              type="button"
-              onClick={() => {
-                setShowModal(!showModal);
-                setModalContents("todos");
-              }}
-            >
-              Faça O Quiz
-            </StyledButton>
-          </QuizCard>
-        </section>
+              <StyledTitle tag="p" color="two" fontSize="four" align="two">
+                Teste seus conhecimentos Gerais
+              </StyledTitle>
+              <StyledButton
+                margin="one"
+                type="button"
+                onClick={() => {
+                  setShowModal(!showModal);
+                  setModalContents("todos");
+                }}
+              >
+                Faça o quiz
+              </StyledButton>
+            </QuizCard>
+          </section>
+        </div>
       </QuizMain>
-
       {showModal ? <QuizModal /> : false}
     </StyledHomeContainer>
   );
