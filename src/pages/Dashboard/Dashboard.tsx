@@ -13,7 +13,7 @@ import QuizModal from "./QuizModal";
 import { QuizModalContext } from "../../contexts/QuizModalContext";
 
 export const Dashboard = () => {
-  const { showModal, setShowModal, setModalContents } =
+  const { showModal, setShowModal, setModalContents, setCurrentQuest } =
     useContext(QuizModalContext);
   return (
     <StyledHomeContainer className="temp">
@@ -73,6 +73,7 @@ export const Dashboard = () => {
                 onClick={() => {
                   setShowModal(!showModal);
                   setModalContents("todos");
+                  setCurrentQuest(0);
                 }}
               >
                 Faça o quiz
