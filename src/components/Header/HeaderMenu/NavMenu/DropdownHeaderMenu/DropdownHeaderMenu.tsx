@@ -19,60 +19,60 @@ import { useParams, useLocation } from "react-router-dom";
 import { AstrosContext } from "../../../../../contexts/AstrosContext";
 
 export const DropdownHeaderMenu = ({ windowSize }: iDropdownUserProps) => {
-	const { user, userLogout } = useContext(UserContext);
-	const { pathName } = useContext(AstrosContext);
+  const { user, userLogout } = useContext(UserContext);
+  const { pathName } = useContext(AstrosContext);
 
-	return (
-		<DropdownMenu.Root>
-			{windowSize.innerWidth < 768 ? (
-				<DropdownMenu.Trigger className="mobile-dropmenu-trigger" asChild>
-					<button>
-						<CgMenuRound aria-label="Menu" title="Menu" />
-					</button>
-				</DropdownMenu.Trigger>
-			) : (
-				<DropdownMenu.Trigger>
-					<UserAvatar />
-				</DropdownMenu.Trigger>
-			)}
+  return (
+    <DropdownMenu.Root>
+      {windowSize.innerWidth < 768 ? (
+        <DropdownMenu.Trigger className="mobile-dropmenu-trigger" asChild>
+          <button>
+            <CgMenuRound aria-label="Menu" title="Menu" />
+          </button>
+        </DropdownMenu.Trigger>
+      ) : (
+        <DropdownMenu.Trigger>
+          <UserAvatar />
+        </DropdownMenu.Trigger>
+      )}
 
-			<DropdownMenu.Portal container={document.body}>
-				<DropdownMenu.Content
-					loop
-					className={`dropmenu-content + ${
-						windowSize.innerWidth < 768 ? "mobile" : "desktop"
-					}`}
-				>
-					{windowSize.innerWidth < 768 && (
-						<>
-							<DropdownMenu.Item>
-								<StyledHeaderDropdown>
-									<UserAvatar />
-									{user ? (
-										<StyledTitle tag="h4" fontSize="five" color="two">
-											{user.name}
-										</StyledTitle>
-									) : (
-										<StyledTitle tag="h4" fontSize="five" color="two">
-											Visitante
-										</StyledTitle>
-									)}
-								</StyledHeaderDropdown>
-							</DropdownMenu.Item>
+      <DropdownMenu.Portal container={document.body}>
+        <DropdownMenu.Content
+          loop
+          className={`dropmenu-content + ${
+            windowSize.innerWidth < 768 ? "mobile" : "desktop"
+          }`}
+        >
+          {windowSize.innerWidth < 768 && (
+            <>
+              <DropdownMenu.Item>
+                <StyledHeaderDropdown>
+                  <UserAvatar />
+                  {user ? (
+                    <StyledTitle tag="h4" fontSize="five" color="two">
+                      {user.name}
+                    </StyledTitle>
+                  ) : (
+                    <StyledTitle tag="h4" fontSize="five" color="two">
+                      Visitante
+                    </StyledTitle>
+                  )}
+                </StyledHeaderDropdown>
+              </DropdownMenu.Item>
 
-							<DropdownMenu.Separator className="dropmenu-separator" />
+              <DropdownMenu.Separator className="dropmenu-separator" />
 
-							<DropdownMenu.Item className="menu-item">
-								<IoPlanet />
-								<Link
-									to="/planets"
-									className={pathName === "planets" ? "active" : ""}
-								>
-									Planetas
-								</Link>
-							</DropdownMenu.Item>
+              <DropdownMenu.Item className="menu-item">
+                <IoPlanet />
+                <Link
+                  to="/planets"
+                  className={pathName === "planets" ? "active" : ""}
+                >
+                  Planetas
+                </Link>
+              </DropdownMenu.Item>
 
-							<DropdownMenu.Item className="menu-item">
+              {/* <DropdownMenu.Item className="menu-item">
 								<BsStars />
 								<Link
 									to="/stars"
@@ -80,70 +80,70 @@ export const DropdownHeaderMenu = ({ windowSize }: iDropdownUserProps) => {
 								>
 									Estrelas
 								</Link>
-							</DropdownMenu.Item>
+							</DropdownMenu.Item> */}
 
-							<DropdownMenu.Item className="menu-item">
-								<MdQuiz />
-								<Link
-									to="/quiz"
-									className={pathName === "quiz" ? "active" : ""}
-								>
-									Quiz
-								</Link>
-							</DropdownMenu.Item>
+              <DropdownMenu.Item className="menu-item">
+                <MdQuiz />
+                <Link
+                  to="/quiz"
+                  className={pathName === "quiz" ? "active" : ""}
+                >
+                  Quiz
+                </Link>
+              </DropdownMenu.Item>
 
-							<DropdownMenu.Item className="menu-item">
-								<BsPatchPlusFill />
-								<Link
-									to="/extra"
-									className={pathName === "extra" ? "active" : ""}
-								>
-									Extras
-								</Link>
-							</DropdownMenu.Item>
-						</>
-					)}
+              <DropdownMenu.Item className="menu-item">
+                <BsPatchPlusFill />
+                <Link
+                  to="/extra"
+                  className={pathName === "extra" ? "active" : ""}
+                >
+                  Extras
+                </Link>
+              </DropdownMenu.Item>
+            </>
+          )}
 
-					{windowSize.innerWidth < 768 && (
-						<DropdownMenu.Separator className="dropmenu-separator logged" />
-					)}
+          {windowSize.innerWidth < 768 && (
+            <DropdownMenu.Separator className="dropmenu-separator logged" />
+          )}
 
-					{user ? (
-						<>
-							<DropdownMenu.Item className="menu-item" key="Perfil">
-								<FaUserAstronaut />
-								<Link
-									to="/dashboard"
-									className={pathName === "dashboard" ? "active" : ""}
-								>
-									Perfil
-								</Link>
-							</DropdownMenu.Item>
+          {user ? (
+            <>
+              <DropdownMenu.Item className="menu-item" key="Perfil">
+                <FaUserAstronaut />
+                <Link
+                  to="/dashboard"
+                  className={pathName === "dashboard" ? "active" : ""}
+                >
+                  Perfil
+                </Link>
+              </DropdownMenu.Item>
 
-							<DropdownMenu.Item className="menu-item">
-								<FaSpaceShuttle />
-								<Link to="/" onClick={() => userLogout()}>
-									Sair
-								</Link>
-							</DropdownMenu.Item>
-						</>
-					) : (
-						<>
-							<DropdownMenu.Item className="menu-item">
-								<GiSpaceShuttle />
-								<Link to="/login">Login</Link>
-							</DropdownMenu.Item>
+              <DropdownMenu.Item className="menu-item">
+                <FaSpaceShuttle />
+                <Link to="/" onClick={() => userLogout()}>
+                  Sair
+                </Link>
+              </DropdownMenu.Item>
+            </>
+          ) : (
+            <>
+              <DropdownMenu.Item className="menu-item">
+                <GiSpaceShuttle />
+                <Link to="/login">Login</Link>
+              </DropdownMenu.Item>
 
-							<DropdownMenu.Item className="menu-item">
-								<FaUserPlus />
-								<Link to="/register">Cadastro</Link>
-							</DropdownMenu.Item>
-						</>
-					)}
+              <DropdownMenu.Item className="menu-item">
+                <FaUserPlus />
+                <Link to="/register">Cadastro</Link>
+              </DropdownMenu.Item>
+            </>
+          )}
 
-					<DropdownMenu.Arrow className="dropmenu-arrow" />
-				</DropdownMenu.Content>
-			</DropdownMenu.Portal>
-		</DropdownMenu.Root>
-	);
+          <DropdownMenu.Arrow className="dropmenu-arrow" />
+        </DropdownMenu.Content>
+      </DropdownMenu.Portal>
+    </DropdownMenu.Root>
+  );
 };
