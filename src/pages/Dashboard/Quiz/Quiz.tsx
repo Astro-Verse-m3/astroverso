@@ -200,7 +200,7 @@ export const Quiz = () => {
           <StyledButton
             margin="one"
             onClick={() => {
-              sendPoints(points);
+              sendPoints(0);
               setShowModal(!showModal);
               setCurrentQuest(0);
             }}
