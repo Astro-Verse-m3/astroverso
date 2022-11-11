@@ -28,6 +28,8 @@ export const Quiz = () => {
     modalContents,
     answerQuestion,
     setCurrentQuest,
+    setShowModal,
+    showModal,
   } = useContext(QuizModalContext);
 
   const token = localStorage.getItem("@astroverso:token");
@@ -110,7 +112,7 @@ export const Quiz = () => {
           >
             {quests[currentQuest]?.title}
           </StyledTitle>
-          <div className="options">
+          <div className="option">
             {quests[currentQuest]?.options?.map(({ answer, point }, i) => (
               <Option
                 key={i}
@@ -145,7 +147,7 @@ export const Quiz = () => {
             src={require("../../../assets/premio.png")}
             alt="Quiz Finalizado"
           />
-          <StyledTitle tag="p" color="two" fontSize="four" align="two">
+          <StyledTitle tag="p" color="two" fontSize="four">
             Parabéns, você finalizou o quiz!
           </StyledTitle>
           {points / 2 !== limitQuest ? (
@@ -156,7 +158,6 @@ export const Quiz = () => {
                   color="two"
                   fontSize="four"
                   className="question"
-                  align="two"
                 >
                   Que pena você errou todas as perguntas das {limitQuest}
                 </StyledTitle>
@@ -168,7 +169,6 @@ export const Quiz = () => {
                       color="two"
                       fontSize="four"
                       className="question"
-                      align="two"
                     >
                       É bom dar uma estudada!! Você acertou apenas {points / 2}/
                       {limitQuest === 10 ? <>10</> : <>5</>} perguntas
@@ -179,7 +179,6 @@ export const Quiz = () => {
                       color="two"
                       fontSize="four"
                       className="question"
-                      align="two"
                     >
                       Você acertou {points / 2}/
                       {limitQuest === 10 ? <>10</> : <>5</>} perguntas
@@ -194,7 +193,6 @@ export const Quiz = () => {
               color="two"
               fontSize="four"
               className="question"
-              align="two"
             >
               Nossa que incrivel!! Você acertou todas as perguntas
             </StyledTitle>
@@ -203,6 +201,8 @@ export const Quiz = () => {
             margin="one"
             onClick={() => {
               sendPoints(points);
+              setShowModal(!showModal);
+              setCurrentQuest(0);
             }}
           >
             Finalizar Quiz
