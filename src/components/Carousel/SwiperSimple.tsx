@@ -20,7 +20,6 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import "../Slider/Slider.css";
 import { PostsContext } from "../../contexts/PostsContext";
-import { Modal } from "../Modal/Modal";
 
 const SwiperSimple = () => {
   const { astroList } = useContext(AstrosContext);
@@ -62,7 +61,6 @@ const SwiperSimple = () => {
               typeCard="astroCard"
               astroCard={astro}
               onClick={() => {
-                console.log(astro.id);
                 setShowModalPost(true);
                 setCurrentPlanet(astro.id);
               }}
