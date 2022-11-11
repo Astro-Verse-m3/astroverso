@@ -65,18 +65,26 @@ export const StyledModalCard = styled.div`
 
   .loader-container {
     background-color: transparent;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .loader-img {
-    animation: spin 2s infinite linear;
+    animation: rotate 2s infinite linear;
     width: 3rem;
     height: 3rem;
-    margin-bottom: 2rem;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   @media screen and (max-width: 1172px) {

@@ -25,13 +25,15 @@ interface iPlanetsContextProps {
   postsById: (id: number) => void;
   loading: boolean;
   setLoading: Function;
-  showModal: boolean;
-  setShowModal: Function;
+  showModalPost: boolean;
+  setShowModalPost: Function;
   starPosts: iStarPosts[] | null;
   setStarPosts: Function;
   getStarPosts: () => void;
   category: string | null;
   astroName: string | null;
+  currentPlanet: number;
+  setCurrentPlanet: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const PostsContext = createContext({} as iPlanetsContextProps);
@@ -40,9 +42,10 @@ export const PostsProvider = ({ children }: iChildren) => {
   const [planetPosts, setPlanetPosts] = useState<iPlanetsPosts[] | null>([]);
   const [starPosts, setStarPosts] = useState<iStarPosts[] | null>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [showModal, setShowModal] = useState<boolean>(true);
+  const [showModalPost, setShowModalPost] = useState<boolean>(true);
   const [category, setCategory] = useState<string | null>("");
   const [astroName, setAstroName] = useState<string | null>("");
+  const [currentPlanet, setCurrentPlanet] = useState(1 as number);
 
   const location = useLocation();
 
@@ -87,13 +90,15 @@ export const PostsProvider = ({ children }: iChildren) => {
         postsById,
         loading,
         setLoading,
-        showModal,
-        setShowModal,
+        showModalPost,
+        setShowModalPost,
         starPosts,
         setStarPosts,
         getStarPosts,
         category,
         astroName,
+        currentPlanet,
+        setCurrentPlanet,
       }}
     >
       {children}
