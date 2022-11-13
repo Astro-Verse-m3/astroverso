@@ -8,8 +8,10 @@ import { StyledMenuLink as Link } from "../style";
 import { StyledMenuItem, StyledMenuList } from "../style";
 
 export const NavLinks = () => {
-  const { pathName } = useContext(AstrosContext);
-
+  const { pathName, isLogged, setIsLogged, setToQuiz } =
+    useContext(AstrosContext);
+  const token = localStorage.getItem("@astroverso:token");
+  token ? setIsLogged(true) : setIsLogged(false);
   return (
     <StyledMenuList>
       <StyledMenuItem className="menu-item">
@@ -29,8 +31,9 @@ export const NavLinks = () => {
       <StyledMenuItem className="menu-item">
         <MdQuiz />
         <Link
-          to="/dashboard"
+          to={isLogged ? "/dashboard" : "/login"}
           className={pathName === "dashboard" ? "active" : ""}
+          onClick={() => setToQuiz(true)}
         >
           Quiz
         </Link>

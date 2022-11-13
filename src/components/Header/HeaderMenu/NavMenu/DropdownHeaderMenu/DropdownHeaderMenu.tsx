@@ -20,8 +20,10 @@ import { AstrosContext } from "../../../../../contexts/AstrosContext";
 
 export const DropdownHeaderMenu = ({ windowSize }: iDropdownUserProps) => {
   const { user, userLogout } = useContext(UserContext);
-  const { pathName } = useContext(AstrosContext);
-
+  const { pathName, isLogged, setIsLogged, setToQuiz } =
+    useContext(AstrosContext);
+  const token = localStorage.getItem("@astroverso:token");
+  token ? setIsLogged(true) : setIsLogged(false);
   return (
     <DropdownMenu.Root>
       {windowSize.innerWidth < 768 ? (
@@ -85,8 +87,9 @@ export const DropdownHeaderMenu = ({ windowSize }: iDropdownUserProps) => {
               <DropdownMenu.Item className="menu-item">
                 <MdQuiz />
                 <Link
-                  to="/quiz"
+                  to={isLogged ? "/quiz" : "/login"}
                   className={pathName === "quiz" ? "active" : ""}
+                  onClick={() => setToQuiz(true)}
                 >
                   Quiz
                 </Link>

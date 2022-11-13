@@ -13,6 +13,8 @@ export const AstrosProvider = ({ children }: iChildren) => {
   const { user } = useContext(UserContext);
 
   const [astroList, setAstroList] = useState<iAstro[] | []>(planetsList);
+  const [isLogged, setIsLogged] = useState(false as boolean);
+  const [toQuiz, setToQuiz] = useState(false as boolean);
   const [pathName, setPathName] = useState("planets");
   const location = useLocation();
 
@@ -37,7 +39,9 @@ export const AstrosProvider = ({ children }: iChildren) => {
   }, [location]);
 
   return (
-    <AstrosContext.Provider value={{ astroList, pathName }}>
+    <AstrosContext.Provider
+      value={{ astroList, pathName, isLogged, setIsLogged, toQuiz, setToQuiz }}
+    >
       {children}
     </AstrosContext.Provider>
   );

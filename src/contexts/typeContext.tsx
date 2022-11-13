@@ -90,4 +90,8 @@ export interface iProps {
 export interface iAstrosContextProps {
   astroList: iAstro[];
   pathName: string;
+  isLogged: boolean;
+  setIsLogged: React.Dispatch<React.SetStateAction<boolean>>;
+  toQuiz: boolean;
+  setToQuiz: React.Dispatch<React.SetStateAction<boolean>>;
 }
