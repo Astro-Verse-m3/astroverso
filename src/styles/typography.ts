@@ -159,6 +159,16 @@ ${({ editText }) => {
             font-size: var(--title-5);
           }
         `;
+        case "four":
+          return css`
+            @media (min-width: 1600px) {
+              font-size: var(--title-3);
+            }
+
+            @media (min-width: 2100px) {
+              font-size: 30px;
+            }
+          `;
     }
   }}
 `;

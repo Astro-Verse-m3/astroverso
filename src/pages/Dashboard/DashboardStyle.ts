@@ -45,7 +45,7 @@ export const QuizMain = styled.main`
 
 export const QuizCard = styled.section`
   width: 25%;
-  height: 350px;
+  min-height: 350px;
 
   background-color: rgba(25, 24, 49, 0.8);
 
@@ -58,13 +58,18 @@ export const QuizCard = styled.section`
   align-items: center;
   justify-content: space-between;
 
-
   img {
     width: 60%;
 
     @media (max-width: 471px) {
-      width: 190px  ;
+      width: 190px;
     }
+  }
+
+  @media (max-width: 471px) {
+    margin: 10px 0;
+    min-width: 95%;
+    height: 400px;
   }
 
   @media (max-width: 950px) {
@@ -72,9 +77,15 @@ export const QuizCard = styled.section`
     margin: 15px 0;
   }
 
-  @media (max-width: 471px) {
-    margin: 10px 0;
-    min-width: 95%;
-    height: 400px;
+  @media (min-width: 1600px) {
+    height: 450px;
+  }
+
+  @media (min-width: 1900px) {
+    height: 500px;
+  }
+
+  @media (min-width: 2150px) {
+    height: 600px;
   }
 `;

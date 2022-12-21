@@ -30,11 +30,11 @@ export const Dashboard = () => {
                 alt="Planeta"
               />
 
-              <StyledTitle tag="p" color="two" fontSize="four" align="two">
-                Teste seus conhecimentos sobre Planetas
+              <StyledTitle tag="p" color="two" fontSize="four" align="two" editText="four">
+                Teste seus conhecimentos sobre planetas
               </StyledTitle>
               <StyledButton
-                margin="one"
+                // margin="one"
                 type="button"
                 onClick={() => {
                   setShowModal(!showModal);
@@ -47,11 +47,11 @@ export const Dashboard = () => {
             <QuizCard>
               <img src={sun} alt="Estrelas" />
 
-              <StyledTitle tag="p" color="two" fontSize="four" align="two">
-                Teste seus conhecimentos sobre Estrelas
+              <StyledTitle tag="p" color="two" fontSize="four" align="two" editText="four">
+                Teste seus conhecimentos sobre estrelas
               </StyledTitle>
               <StyledButton
-                margin="one"
+                // margin="one"
                 type="button"
                 onClick={() => {
                   setShowModal(!showModal);
@@ -64,11 +64,11 @@ export const Dashboard = () => {
             <QuizCard>
               <img src={solzinho} alt="Geral" />
 
-              <StyledTitle tag="p" color="two" fontSize="four" align="two">
-                Teste seus conhecimentos Gerais
+              <StyledTitle tag="p" color="two" fontSize="four" align="two" editText="four">
+                Teste seus conhecimentos gerais
               </StyledTitle>
               <StyledButton
-                margin="one"
+                // margin="one"
                 type="button"
                 onClick={() => {
                   setShowModal(!showModal);
@@ -86,19 +86,3 @@ export const Dashboard = () => {
     </StyledHomeContainer>
   );
 };
-
-// Logica do botao que fecha o modal
-
-// const { showModal, setShowModal, setShowPoints, setCurrentQuest } =
-//     useContext(quizModalContexts);
-
-/* <StyledButton
-type="button"
-onClick={() => {
-  setShowModal(!showModal);
-  setShowPoints(true);
-  setCurrentQuest(0);
-}}
->
-Fechar
-</StyledButton> */

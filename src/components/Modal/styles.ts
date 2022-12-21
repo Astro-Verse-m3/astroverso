@@ -13,7 +13,7 @@ export const StyledModalContainer = styled.div`
 `;
 
 export const StyledModalCard = styled.div`
-  height: 30rem;
+  height: fit-content;
   width: 50%;
   position: relative;
   padding: 3rem 2rem;

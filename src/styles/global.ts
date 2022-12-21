@@ -118,10 +118,6 @@ export const GlobalStyle = createGlobalStyle`
         transition: 0.3s;
     }
 
-    /* .temp{
-        height: 50vh !important;
-    } */
-
     .mobile-dropmenu-trigger{
         color: var(--color-grey-2);
         font-size: var(--height-2);
@@ -275,12 +271,12 @@ export const GlobalStyle = createGlobalStyle`
 
         /* Size Elements */
         --height-1: 48px;
-	    --height-2: 38px;
-	    --height-3: 32px;
+	      --height-2: 38px;
+	      --height-3: 32px;
         --height-4: 2.5rem;
 
         --width-1: 100%;
-	    --width-2: 1200px;
+	      --width-2: 1200px;
         --width-3: 90%;
 
         /* Text Sizes */
