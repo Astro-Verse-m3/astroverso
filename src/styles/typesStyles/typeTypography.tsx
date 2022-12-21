@@ -15,5 +15,5 @@ export interface iStyledInputsForm {
 }
 
 export interface iStyledButton {
-    margin: string
+    margin?: string
 }

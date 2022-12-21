@@ -28,6 +28,11 @@ export const StyledButton = styled.button<iStyledButton>`
     font-size: var(--title-3);
   }
 
+  @media (min-width: 1600px) {
+    height: 3.5rem;
+    margin: 15px 0;
+  }
+
   ${({ margin }) => {
     switch (margin) {
       case "one":

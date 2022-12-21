@@ -159,7 +159,7 @@ export const Quiz = () => {
                   fontSize="four"
                   className="question"
                 >
-                  Que pena você errou todas as perguntas das {limitQuest}
+                  Que pena você errou todas as {limitQuest} perguntas. 
                 </StyledTitle>
               ) : (
                 <>

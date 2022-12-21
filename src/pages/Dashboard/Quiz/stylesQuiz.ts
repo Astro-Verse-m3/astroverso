@@ -24,18 +24,6 @@ export const DivQuiz = styled.div`
   img {
     width: 40%;
   }
-
-  /* @media (max-width: 768px) {
-    max-width: 100%;
-    padding: 64px 24px;
-  }
-
-  .question {
-    font-family: "Raleway", sand-serif;
-    font-weight: bold;
-    font-size: 25px;
-    margin-bottom: 24px;
-  } */
 `;
 
 export const CloseButton = styled.button`
@@ -44,7 +32,7 @@ export const CloseButton = styled.button`
   text-align: center;
   color: #000000;
   font-weight: bold;
-  min-width: 32px;ver
+  min-width: 32px;
   min-height: 32px;
 
   position: absolute;
