@@ -21,7 +21,7 @@ export const Extras = () => {
 	useEffect(() => {
 		const recomendations = async () => {
 			await axios
-				.get("https://astroverso-json-api.herokuapp.com/extras")
+				.get("https://astroverso-json-api.onrender.com/extras")
 				.then(response => {
 					setContents(response.data);
 				})
