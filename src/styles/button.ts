@@ -19,8 +19,9 @@ export const StyledButton = styled.button<iStyledButton>`
     color: var(--color-grey-0);
   }
 
-  @media (min-height: 840px) {
+  @media (min-width: 760px) {
     height: var(--height-1);
+    font-size: var(--title-3);
   }
 
   @media (min-width: 760px) {

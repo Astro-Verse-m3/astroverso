@@ -75,6 +75,10 @@ export const StyledTitle = styled(BaseTitle)<iTextProps>`
         return css`
           margin-top: 5px;
         `;
+      case "three":
+        return css`
+          margin-bottom: 15px;
+        `;
     }
   }}
 
@@ -159,16 +163,16 @@ ${({ editText }) => {
             font-size: var(--title-5);
           }
         `;
-        case "four":
-          return css`
-            @media (min-width: 1600px) {
-              font-size: var(--title-3);
-            }
+      case "four":
+        return css`
+          @media (min-width: 1600px) {
+            font-size: var(--title-3);
+          }
 
-            @media (min-width: 2100px) {
-              font-size: 30px;
-            }
-          `;
+          @media (min-width: 2100px) {
+            font-size: 30px;
+          }
+        `;
     }
   }}
 `;

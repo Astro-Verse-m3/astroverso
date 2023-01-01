@@ -14,9 +14,10 @@ export const StyledModalContainer = styled.div`
 
 export const StyledModalCard = styled.div`
   height: fit-content;
+  max-height: 80%;
   width: 50%;
   position: relative;
-  padding: 3rem 2rem;
+  padding: 2rem 1.5rem;
   border-radius: 20px;
   background-color: rgb(25, 24, 49, 0.95);
   color: #fff;
@@ -26,13 +27,16 @@ export const StyledModalCard = styled.div`
   }
 
   @media (max-width: 580px) {
-    height: 70%;
     min-width: 85%;
   }
 
   @media (max-width: 360px) {
-    height: 75%;
     top: 30px;
+  }
+
+  @media (max-width: 280px) {
+    top: 0;
+    padding: 2rem 1rem;
   }
 
   .close-button {

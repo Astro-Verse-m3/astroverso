@@ -22,9 +22,6 @@ export const Modal = () => {
     loading,
     planetPosts,
     setShowModalPost,
-    category,
-    getStarPosts,
-    starPosts,
     astroName,
     currentPlanet,
   } = useContext(PostsContext);
@@ -47,6 +44,7 @@ export const Modal = () => {
 
   useEffect(() => {
     postsById(currentPlanet);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
