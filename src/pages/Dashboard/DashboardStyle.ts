@@ -65,11 +65,10 @@ export const QuizCard = styled.section`
       width: 190px;
     }
   }
-
-  @media (max-width: 471px) {
+  @media (max-width: 480px) {
     margin: 10px 0;
-    min-width: 95%;
     height: 400px;
+    width: 95%;
   }
 
   @media (max-width: 950px) {

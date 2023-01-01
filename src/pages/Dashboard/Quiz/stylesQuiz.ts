@@ -44,22 +44,27 @@ export const Option = styled.button`
   border: 1px solid #d0cedd;
   border-radius: 14px;
   text-align: center;
-  padding: 16px;
+  padding: 10px;
   width: 100%;
-  margin: 16px 0;
+  margin: 12px 0;
   background: transparent;
-  font-weight: bold;
   font-size: 18px;
   color: #fff;
 
   &.correct {
     background: rgba(91, 244, 77, 0.5);
     border: 1px solid #d0cedd;
+    font-weight: bold;
   }
 
   &.wrong {
     background: rgba(230, 12, 12, 0.5);
     border: 1px solid #d0cedd;
+    font-weight: bold;
+  }
+
+  @media (max-width: 280px) {
+    font-size: 14px;
   }
 `;
 
@@ -70,6 +75,10 @@ export const Proximo = styled.button`
   width: 100%;
   font-size: 20px;
   color: #fff;
-
   margin-top: 24px;
+
+  @media (max-width: 280px) {
+    font-size: 16px;
+    padding: 12px;
+  }
 `;

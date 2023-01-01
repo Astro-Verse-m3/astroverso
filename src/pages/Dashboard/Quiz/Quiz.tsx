@@ -109,6 +109,7 @@ export const Quiz = () => {
             fontSize="four"
             className="question"
             align="two"
+            margin="three"
           >
             {quests[currentQuest]?.title}
           </StyledTitle>
